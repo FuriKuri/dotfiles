@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "Update brew"
 brew update
 
 echo "Install bash-completion"
