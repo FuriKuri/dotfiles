@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+brew update
+
+echo "Install bash-completion"
+brew install bash-completion
+
+echo "Install ngrep"
+brew install ngrep
+
+echo "Install tree"
+brew install tree
