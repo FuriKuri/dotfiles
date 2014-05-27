@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-echo "Update brew"
+echo "👾👾   Update brew"
 brew update
 
-echo "Install bash-completion"
+echo "👾👾   Install bash-completion"
 brew install bash-completion
 
-echo "Install ngrep"
+echo "👾👾   Install ngrep"
 brew install ngrep
 
-echo "Install tree"
+echo "👾👾   Install tree"
 brew install tree
