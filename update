@@ -34,9 +34,12 @@ if [ ! -d ~/bin ]
     mkdir ~/bin
 fi
 
-echomsg "INSTALL git-wtf"
-wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
-chmod +x ~/bin/git-wtf
+if [ -a ~/bin/git-wtf ]
+  then
+    echomsg "INSTALL git-wtf"
+    wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
+    chmod +x ~/bin/git-wtf
+fi
 
 unset echomsg
 unset brewit
