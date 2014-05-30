@@ -4,26 +4,39 @@ function echomsg {
   echo -e "👾👾👾👾  <- dancing aliens: \033[33m$1\033[39m"
 }
 
+function brewit {
+  if [ -h /usr/local/bin/$1 ]
+    then
+      echomsg "UPDATE $1"
+      brew upgrade $1
+    else
+      echomsg "INSTALL $1"
+      brew install $1
+  fi
+}
+
 echomsg "UPDATE brew"
 brew update
 
-echomsg "INSTALL bash-completion"
-brew install bash-completion
+brewit bash-completion
 
-echomsg "INSTALL ngrep"
-brew install ngrep
+brewit ngrep
 
-echomsg "INSTALL tree"
-brew install tree
+brewit tree
 
-echomsg "INSTALL wget"
-brew install wget
+brewit wget
+
+brewit git-flow
+
+if [ ! -d ~/bin ]
+  then
+    echo "Creating ~/bin"
+    mkdir ~/bin
+fi
 
 echomsg "INSTALL git-wtf"
 wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
 chmod +x ~/bin/git-wtf
 
-echomsg "INSTALL git-flow"
-brew install git-flow
-
 unset echomsg
+unset brewit
