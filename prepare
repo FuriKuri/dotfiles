@@ -23,4 +23,7 @@ echomsg "INSTALL git-wtf"
 wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
 chmod +x ~/bin/git-wtf
 
+echomsg "INSTALL git-flow"
+brew install git-flow
+
 unset echomsg
