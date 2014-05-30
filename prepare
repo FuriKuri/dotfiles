@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
-echo "👾👾👾👾  <- dancing aliens ::: Update brew"
+
+function echomsg {
+  echo -e "👾👾👾👾  <- dancing aliens: \033[33m$1\033[39m"
+}
+
+echomsg "UPDATE brew"
 brew update
 
-echo "👾👾👾👾  <- dancing aliens ::: Install bash-completion"
+echomsg "INSTALL bash-completion"
 brew install bash-completion
 
-echo "👾👾👾👾  <- dancing aliens ::: Install ngrep"
+echomsg "INSTALL ngrep"
 brew install ngrep
 
-echo "👾👾👾👾  <- dancing aliens ::: Install tree"
+echomsg "INSTALL tree"
 brew install tree
 
-echo "👾👾👾👾  <- dancing aliens ::: Install wget"
+echomsg "INSTALL wget"
 brew install wget
 
-echo "👾👾👾👾  <- dancing aliens ::: Install git-wtf"
+echomsg "INSTALL git-wtf"
 wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
 chmod +x ~/bin/git-wtf
+
+unset echomsg
