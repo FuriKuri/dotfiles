@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-echo "👾👾👾👾   Update brew"
+echo "👾👾👾👾  <- dancing aliens ::: Update brew"
 brew update
 
-echo "👾👾👾👾   Install bash-completion"
+echo "👾👾👾👾  <- dancing aliens ::: Install bash-completion"
 brew install bash-completion
 
-echo "👾👾👾👾   Install ngrep"
+echo "👾👾👾👾  <- dancing aliens ::: Install ngrep"
 brew install ngrep
 
-echo "👾👾👾👾   Install tree"
+echo "👾👾👾👾  <- dancing aliens ::: Install tree"
 brew install tree
 
-echo "👾👾👾👾   Install wget"
+echo "👾👾👾👾  <- dancing aliens ::: Install wget"
 brew install wget
 
-echo "👾👾👾👾   Install git-wtf"
+echo "👾👾👾👾  <- dancing aliens ::: Install git-wtf"
 wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
 chmod +x ~/bin/git-wtf
