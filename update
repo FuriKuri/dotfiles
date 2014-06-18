@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+function echomsg {
+  echo -e "👾👾👾👾  <- dancing aliens: \033[33m$1\033[39m"
+}
+
+function brewit {
+  if [ -h /usr/local/bin/$1 ]
+    then
+      echomsg "UPDATE $1"
+      brew upgrade $1
+    else
+      echomsg "INSTALL $1"
+      brew install $1
+  fi
+}
+
+echomsg "UPDATE brew"
+brew update
+
+brewit bash-completion
+
+brewit ngrep
+
+brewit tree
+
+brewit wget
+
+brewit git-flow
+
+if [ ! -d ~/bin ]
+  then
+    echo "Creating ~/bin"
+    mkdir ~/bin
+fi
+
+if [ -a ~/bin/git-wtf ]
+  then
+    echomsg "INSTALL git-wtf"
+    wget http://git-wt-commit.rubyforge.org/git-wtf -O ~/bin/git-wtf
+    chmod +x ~/bin/git-wtf
+fi
+
+unset echomsg
+unset brewit
