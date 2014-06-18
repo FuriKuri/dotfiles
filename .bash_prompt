@@ -189,21 +189,21 @@ function get_git_status() {
 
   # Iterate through all the cases and if it matches, then echo
   if [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
-    echo "🙀"
+    echo " 🙀"
   elif [[ "$dirty_branch" == 1 && "$branch_ahead" == 1 ]]; then
-    echo "😹"
+    echo " 😹"
   elif [[ "$dirty_branch" == 1 && "$branch_behind" == 1 ]]; then
-    echo "😿"
+    echo " 😿"
   elif [[ "$branch_ahead" == 1 && "$branch_behind" == 1 ]]; then
-    echo "😽"
+    echo " 😽"
   elif [[ "$branch_ahead" == 1 ]]; then
-    echo "😼"
+    echo " 😼"
   elif [[ "$branch_behind" == 1 ]]; then
-    echo "😻"
+    echo " 😻"
   elif [[ "$dirty_branch" == 1 ]]; then
-    echo "💥"
+    echo " 💥"
   else
-    echo "😸"
+    echo " 😸"
   fi
 }
 
