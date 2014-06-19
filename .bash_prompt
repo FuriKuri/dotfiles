@@ -201,7 +201,7 @@ function get_git_status() {
   elif [[ "$branch_behind" == 1 ]]; then
     echo " 😻"
   elif [[ "$dirty_branch" == 1 ]]; then
-    echo " 💥"
+    echo " 😾"
   else
     echo " 😸"
   fi
