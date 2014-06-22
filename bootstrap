@@ -6,7 +6,8 @@ git pull origin master
 
 function syncDotfiles() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap" \
-	  --exclude "oh-my-zsh" --exclude "solarized" --exclude "themes" \
+	    --exclude "oh-my-zsh" --exclude "solarized" --exclude "themes" \
+	    --exclude "osx-terminal.app-colors-solarized" \
 		--exclude "README.md" --exclude ".gitignore" -avh --no-perms . ~
 	source ~/.bash_profile
 }
