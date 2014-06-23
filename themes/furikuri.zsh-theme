@@ -2,7 +2,21 @@ function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-RPROMPT='%(?.%{$fg[green]%}✔ .%{$fg[red]%}✖ )% %{$reset_color%}'
+ZSH_THEME_NVM_PROMPT_PREFIX="%B⬡%b "
+ZSH_THEME_NVM_PROMPT_SUFFIX=""
+
+FURI_BRACKET_COLOR="%{$fg[white]%}"
+FURI_RVM_COLOR="%{$fg[magenta]%}"
+
+if [ -e ~/.rvm/bin/rvm-prompt ]; then
+  FURI_RVM_="$FURI_BRACKET_COLOR"["$FURI_RVM_COLOR\${\$(~/.rvm/bin/rvm-prompt i v g)#ruby-}$FURI_BRACKET_COLOR"]"%{$reset_color%}"
+else
+  if which rbenv &> /dev/null; then
+    FURI_RVM_="$FURI_BRACKET_COLOR"["$FURI_RVM_COLOR\${\$(rbenv version | sed -e 's/ (set.*$//' -e 's/^ruby-//')}$FURI_BRACKET_COLOR"]"%{$reset_color%}"
+  fi
+fi
+
+RPROMPT="$(nvm_prompt_info) $FURI_RVM_ %(?.%{$fg[green]%}✔ .%{$fg[red]%}✖ )% %{$reset_color%}"
 
 PROMPT='%{$fg[yellow]%}λ %m %{$fg[green]%}$(collapse_pwd) $(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}
 $fg[yellow]%}→%{$reset_color%} '
