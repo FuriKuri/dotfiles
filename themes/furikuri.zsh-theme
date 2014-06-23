@@ -17,7 +17,7 @@ else
 fi
 
 FURI_NVM='$(nvm_prompt_info)'
-FURI_STATUS="%(?.%{$fg[green]%}✔ .%{$fg[red]%}✖ )% %{$reset_color%}"
+FURI_STATUS="%(?.%{$fg[green]%}✔.%{$fg[red]%}✖)% %{$reset_color%}"
 
 
 RPROMPT="$FURI_NVM $FURI_RVM_ $FURI_STATUS"
