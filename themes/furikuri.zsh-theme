@@ -22,7 +22,7 @@ FURI_STATUS="%(?.%{$fg[green]%}✔.%{$fg[red]%}✖)% %{$reset_color%}"
 
 RPROMPT="$FURI_NVM $FURI_RVM_ $FURI_STATUS"
 PROMPT='%{$fg[yellow]%}λ %m %{$fg[green]%}$(collapse_pwd) $(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}
-$fg[yellow]%}→%{$reset_color%} '
+%F{yellow}→%f '
 
 setopt prompt_subst
 
