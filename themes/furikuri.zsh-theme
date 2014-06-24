@@ -2,8 +2,8 @@ function collapse_pwd {
     echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-ZSH_THEME_NVM_PROMPT_PREFIX="%B⬡%b "
-ZSH_THEME_NVM_PROMPT_SUFFIX=""
+ZSH_THEME_NVM_PROMPT_PREFIX="%{$fg[green]%}⬡ "
+ZSH_THEME_NVM_PROMPT_SUFFIX="%{$reset_color%}"
 
 FURI_BRACKET_COLOR="%{$fg[white]%}"
 FURI_RVM_COLOR="%{$fg[magenta]%}"
