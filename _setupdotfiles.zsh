@@ -40,9 +40,12 @@ echo "DOTFILESDIRRELATIVETOHOME = $DOTFILESDIRRELATIVETOHOME"
 
 pushd ~
 
-symlinkifne .bash_profile
-symlinkifne .bashrc
 symlinkifne .aliases
+symlinkifne .emacs
+symlinkifne .exports
+symlinkifne .functions
+symlinkifne .gitconfig
+symlinkifne .mongorc.js
 symlinkifne .zprofile
 symlinkifne .zshenv
 symlinkifne .zshrc
