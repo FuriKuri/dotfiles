@@ -16,8 +16,8 @@ function symlinkifne {
 
           # create the link
           export DOTLESS=`echo $1 | sed s/.//`
-          echo "  Symlinking $DOTFILESDIRRELATIVETOHOME/$DOTLESS to $1"
-          ln -s $DOTFILESDIRRELATIVETOHOME/$DOTLESS $1
+          echo "  Symlinking $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS to $1"
+          ln -s $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS $1
       else
         echo "  SKIPPING $1."
       fi
@@ -25,8 +25,8 @@ function symlinkifne {
     else
       # create the link
       export DOTLESS=`echo $1 | sed s/.//`
-      echo "  Symlinking $DOTFILESDIRRELATIVETOHOME/$DOTLESS to $1"
-      ln -s $DOTFILESDIRRELATIVETOHOME/$DOTLESS $1
+      echo "  Symlinking $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS to $1"
+      ln -s $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS $1
     fi
 }
 
@@ -34,18 +34,17 @@ function symlinkifne {
 echo "This script must be run from the dotfiles directory"
 echo "Setting up..."
 
-#export DOTFILESDIRRELATIVETOHOME=$PWD
-export DOTFILESDIRRELATIVETOHOME=.dotfiles
-echo "DOTFILESDIRRELATIVETOHOME = $DOTFILESDIRRELATIVETOHOME"
+export DOTFILES_DIR_RELATIVE_TO_HOME=.dotfiles
+echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
 
-symlinkifne .aliases
+# symlinkifne .aliases
 symlinkifne .emacs
-symlinkifne .exports
-symlinkifne .functions
-symlinkifne .gitconfig
-symlinkifne .mongorc.js
-symlinkifne .zshrc
+# symlinkifne .exports
+# symlinkifne .functions
+# symlinkifne .gitconfig
+# symlinkifne .mongorc.js
+# symlinkifne .zshrc
 
 popd
