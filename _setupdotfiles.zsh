@@ -39,12 +39,15 @@ echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
 
-# symlinkifne .aliases
+symlinkifne .aliases
 symlinkifne .emacs
-# symlinkifne .exports
-# symlinkifne .functions
-# symlinkifne .gitconfig
-# symlinkifne .mongorc.js
-# symlinkifne .zshrc
+symlinkifne .exports
+symlinkifne .functions
+symlinkifne .gitconfig
+symlinkifne .mongorc.js
+symlinkifne .zshrc
 
 popd
+
+echo "Install mongo hacker"
+make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker
