@@ -46,8 +46,6 @@ symlinkifne .exports
 symlinkifne .functions
 symlinkifne .gitconfig
 symlinkifne .mongorc.js
-symlinkifne .zprofile
-symlinkifne .zshenv
 symlinkifne .zshrc
 
 popd
