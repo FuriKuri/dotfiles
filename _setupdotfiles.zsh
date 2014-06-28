@@ -6,7 +6,7 @@ function backupdotfiles {
   echo "WORKING ON: $1"
   if [[ -a $1 ]]; then
     export DOTLESS=`echo $1 | sed s/.//`
-    echo "move $1 to $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS"
+    echo "move $1 to $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS/backup"
     mv $1 $DOTFILES_DIR_RELATIVE_TO_HOME/backup/$DOTLESS
   else
     echo "File does not exist"
@@ -51,17 +51,22 @@ echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
 
+backupdotfiles .aliases
 backupdotfiles .emacs
+backupdotfiles .exports
+backupdotfiles .functions
+backupdotfiles .gitconfig
+backupdotfiles .zshrc
 
 symlinkifne .aliases
 symlinkifne .emacs
 symlinkifne .exports
 symlinkifne .functions
 symlinkifne .gitconfig
-symlinkifne .mongorc.js
 symlinkifne .zshrc
 
 popd
 
 echo "Install mongo hacker"
-make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker
+make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker uninstall
+make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker install
