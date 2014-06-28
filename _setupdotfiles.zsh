@@ -51,12 +51,14 @@ echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
 
-backupdotfiles .aliases
-backupdotfiles .emacs
-backupdotfiles .exports
-backupdotfiles .functions
-backupdotfiles .gitconfig
-backupdotfiles .zshrc
+if [ "$1" == "--backup" -o "$1" == "-b" ]; then
+  backupdotfiles .aliases
+  backupdotfiles .emacs
+  backupdotfiles .exports
+  backupdotfiles .functions
+  backupdotfiles .gitconfig
+  backupdotfiles .zshrc
+fi
 
 symlinkifne .aliases
 symlinkifne .emacs
