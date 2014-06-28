@@ -2,6 +2,18 @@
 
 export UNLINK=true
 
+function backupdotfiles {
+  echo "WORKING ON: $1"
+  if [[ -a $1 ]]; then
+    export DOTLESS=`echo $1 | sed s/.//`
+    echo "move $1 to $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS"
+    mv $1 $DOTFILES_DIR_RELATIVE_TO_HOME/backup/$DOTLESS
+  else
+    echo "File does not exist"
+  fi
+
+}
+
 function symlinkifne {
     echo "WORKING ON: $1"
 
@@ -38,6 +50,8 @@ export DOTFILES_DIR_RELATIVE_TO_HOME=.dotfiles
 echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
+
+backupdotfiles .emacs
 
 symlinkifne .aliases
 symlinkifne .emacs
