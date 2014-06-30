@@ -51,7 +51,7 @@ echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
 
-if [ "$1" == "--backup" -o "$1" == "-b" ]; then
+if [ $1 = "--backup" ]; then
   backupdotfiles .aliases
   backupdotfiles .emacs
   backupdotfiles .exports
