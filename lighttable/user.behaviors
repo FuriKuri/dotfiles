@@ -17,6 +17,7 @@
 
      ;; The editor tag is applied to all editors
      :editor [:lt.objs.editor/no-wrap
+              :lt.objs.editor/line-numbers
               (:lt.objs.style/font-settings "Monaco" 9 1.3) ;; font-family: Menlo, font-size: 13px, line-height: 2em
               (:lt.objs.style/set-theme "solarized-light")]
 
