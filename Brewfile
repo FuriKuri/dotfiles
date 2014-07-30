@@ -7,7 +7,24 @@ update
 # Upgrade any already-installed formulae
 upgrade
 
+install git
+install ruby-build
+install rbenv
+install node
+install elixir
+install v8
+install maven
+install gradle
+install unrar
+install git-extras
+install springboot
+install coffee
+install git-wtf
+install gibo
+install leiningen
 install ngrep
 install tree
 install wget
 install git-flow
+
+# nvm instead of nvm
