@@ -3,6 +3,7 @@
 alias emacs='emacs-24.3'
 
 alias chrome=' open -a "Google Chrome"'
+alias canary=' open -a "Google Chrome Canary"'
 
 # Easier navigation: .., ..., ...., .....
 alias ..="cd .."
