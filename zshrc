@@ -88,3 +88,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
+
+eval "$(rbenv init -)"
+
+source "`brew --prefix grc`/etc/grc.bashrc"
