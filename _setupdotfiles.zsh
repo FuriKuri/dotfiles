@@ -58,6 +58,7 @@ if [ $1 = "--backup" ]; then
   backupdotfiles .functions
   backupdotfiles .gitconfig
   backupdotfiles .zshrc
+  backupdotfiles .vimrc
 fi
 
 symlinkifne .aliases
@@ -66,6 +67,7 @@ symlinkifne .exports
 symlinkifne .functions
 symlinkifne .gitconfig
 symlinkifne .zshrc
+symlinkifne .vimrc
 
 popd
 
