@@ -13,3 +13,6 @@
 [submodule "z"]
 	path = z
 	url = git@github.com:rupa/z.git
+[submodule "Menlo-for-Powerline"]
+	path = Menlo-for-Powerline
+	url = git@github.com:abertsch/Menlo-for-Powerline.git
