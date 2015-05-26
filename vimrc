@@ -31,7 +31,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-set guifont=Menlo\ for\ Powerline:h15
+set guifont=Menlo\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -44,6 +44,6 @@ set laststatus=2
 if has("gui_running")
    let s:uname = system("uname")
    if s:uname == "Darwin\n"
-      set guifont=Menlo\ for\ Powerline:h15
+      set guifont=Menlo\ for\ Powerline:h12
    endif
 endif
