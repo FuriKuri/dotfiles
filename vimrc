@@ -38,8 +38,9 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
-
+set ts=2
 set laststatus=2
+set expandtab
 
 if has("gui_running")
    let s:uname = system("uname")
