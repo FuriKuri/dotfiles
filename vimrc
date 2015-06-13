@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,6 +42,7 @@ set termencoding=utf-8
 set ts=2
 set laststatus=2
 set expandtab
+set shiftwidth=2
 
 if has("gui_running")
    let s:uname = system("uname")
