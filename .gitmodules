@@ -7,12 +7,12 @@
 [submodule "mongo-hacker"]
 	path = mongo-hacker
 	url = git@github.com:FuriKuri/mongo-hacker.git
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = git@github.com:robbyrussell/oh-my-zsh.git
 [submodule "z"]
 	path = z
 	url = git@github.com:rupa/z.git
 [submodule "Menlo-for-Powerline"]
 	path = Menlo-for-Powerline
 	url = git@github.com:abertsch/Menlo-for-Powerline.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git@github.com:robbyrussell/oh-my-zsh.git
