@@ -128,3 +128,20 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+function screenshot.setjpg() {
+    defaults write com.apple.screencapture type jpg
+    killall SystemUIServer
+}
+
+function screenshot.setpng() {
+    defaults write com.apple.screencapture type png
+    killall SystemUIServer
+}
+
+# Files used, anywhere on the filesystem
+alias files.usage='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep'
+# Files being opened
+alias files.open='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep|grep open'
+# Files in use in the Users directory
+alias files.usage.user='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep|grep Users'
