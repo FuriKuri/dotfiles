@@ -23,7 +23,6 @@ function loc() {
   echo "${fg[blue]}Total${reset_color} lines of code: ${fg[green]}$total${reset_color}"
 }
 
-
 # Find files and exec commands at them.
 # $ find-exec .coffee cat | wc -l
 # # => 9762
