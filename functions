@@ -1,3 +1,15 @@
+function versions() {
+  tput setaf 4;
+  echo "Java ->"; 
+  java -version;
+  tput setaf 2;
+  echo "Node -> "; 
+  node --version;
+  tput setaf 1;
+  echo "Ruby -> "; 
+  ruby --version;  
+}
+
 # Count code lines in some directory.
 # $ loc py js css
 # # => Lines of code for .py: 3781
