@@ -1,12 +1,12 @@
 function versions() {
   tput setaf 4;
-  echo "Java ->"; 
+#  echo "Java ->"; 
   java -version;
   tput setaf 2;
-  echo "Node -> "; 
+  echo -n "node "; 
   node --version;
   tput setaf 1;
-  echo "Ruby -> "; 
+ # echo "Ruby -> "; 
   ruby --version;  
 }
 
