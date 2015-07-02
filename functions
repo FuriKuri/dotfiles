@@ -5,6 +5,11 @@ function versions() {
   tput setaf 2;
   echo -n "node "; 
   node --version;
+  tput setaf 3;
+  lein version;
+  tput setaf 5;
+  echo -n "erlang ";
+  erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell;
   tput setaf 1;
  # echo "Ruby -> "; 
   ruby --version;  
