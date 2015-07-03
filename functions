@@ -5,6 +5,9 @@ function versions() {
   tput setaf 2;
   echo -n "node "; 
   node --version;
+  tput setaf 6;
+  echo -n "npm ";
+  npm --version;
   tput setaf 3;
   lein version;
   tput setaf 5;
