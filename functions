@@ -10,6 +10,8 @@ function versions() {
   npm --version;
   tput setaf 3;
   lein version;
+  tput setaf 6;
+  go version;
   tput setaf 5;
   echo -n "erlang ";
   erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell;
