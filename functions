@@ -12,6 +12,8 @@ function versions() {
   lein version;
   tput setaf 6;
   go version;
+  tput setaf 7;
+  scala -version;
   tput setaf 5;
   echo -n "erlang ";
   erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell;
