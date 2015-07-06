@@ -19,7 +19,9 @@ function versions() {
   erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell;
   tput setaf 1;
  # echo "Ruby -> "; 
-  ruby --version;  
+  ruby --version;
+  tput setaf 4;
+  git --version;  
 }
 
 # Count code lines in some directory.
