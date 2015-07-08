@@ -340,3 +340,13 @@ lstree() {
 	depth=${1:-2}
 	find . -maxdepth $depth -print | sed -e 's;[^/]*/;|__;g;s;__|; |;g'
 }
+
+function screenshot.setjpg() {
+    defaults write com.apple.screencapture type jpg
+    killall SystemUIServer
+}
+
+function screenshot.setpng() {
+    defaults write com.apple.screencapture type png
+    killall SystemUIServer
+}
