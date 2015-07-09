@@ -1,12 +1,4 @@
-newtabi()
-{
-    osascript \
-      -e 'activate application "iTerm"' \
-      -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using {shift down, command down}' \
-      -e 'tell application "iTerm" to tell session -1 of current terminal to write text "pwd"' \
-      -e 'tell application "System Events" to tell process "iTerm" to keystroke "ls"' \
-      -e 'tell application "System Events" to tell process "iTerm" to key code 52'
-}
+#!/bin/bash
 
 function iterm_run() {
   osascript \
@@ -46,4 +38,19 @@ function iterm2x2() {
   iterm_next_pane
   iterm_new_v_pane
   iterm_run ls
+}
+
+
+function work() {
+  setproj $1
+  cd $1
+  bot "Load project config"
+  if [ -f .project ]
+  then
+    source .project
+    load
+    bot "Successful"
+  else
+    bot "No Project file"
+  fi
 }
