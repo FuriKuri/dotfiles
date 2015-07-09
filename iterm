@@ -41,7 +41,7 @@ function iterm2x2() {
 }
 
 
-function work() {
+function load() {
   setproj $1
   cd $1
   bot "Load project config"
@@ -50,7 +50,8 @@ function work() {
     source .project
     load
     bot "Successful"
+    alias load="bot \"Project already loaded\""
   else
-    bot "No Project file"
+    bot "No project file"
   fi
 }
