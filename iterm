@@ -1,0 +1,49 @@
+newtabi()
+{
+    osascript \
+      -e 'activate application "iTerm"' \
+      -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using {shift down, command down}' \
+      -e 'tell application "iTerm" to tell session -1 of current terminal to write text "pwd"' \
+      -e 'tell application "System Events" to tell process "iTerm" to keystroke "ls"' \
+      -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+}
+
+function iterm_run() {
+  osascript \
+    -e 'activate application "iTerm"' \
+    -e "tell application \"System Events\" to tell process \"iTerm\" to keystroke \"$1\"" \
+    -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+}
+
+function iterm_new_v_pane() {
+  osascript \
+    -e 'activate application "iTerm"' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using {shift down, command down}' \
+}
+
+function iterm_new_h_pane() {
+  osascript \
+    -e 'activate application "iTerm"' \
+    -e 'tell application "System Events" to tell process "iTerm" to keystroke "d" using command down' \
+}
+
+function iterm_prev_pane() {
+  osascript \
+    -e 'activate application "iTerm"' \
+    -e 'tell application "System Events" to tell process "iTerm" to key code 123 using {shift down, command down}' \
+}
+
+function iterm_next_pane() {
+  osascript \
+    -e 'activate application "iTerm"' \
+    -e 'tell application "System Events" to tell process "iTerm" to key code 124 using {shift down, command down}' \
+}
+
+function iterm2x2() {
+  iterm_new_h_pane
+  iterm_prev_pane
+  iterm_new_v_pane
+  iterm_next_pane
+  iterm_new_v_pane
+  iterm_run ls
+}
