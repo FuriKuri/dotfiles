@@ -59,6 +59,10 @@ if [ $1 = "--backup" ]; then
   backupdotfiles .gitconfig
   backupdotfiles .zshrc
   backupdotfiles .vimrc
+  backupdotfiles .docker_wrapper
+  backupdotfiles .echo
+  backupdotfiles .iterm
+
 fi
 
 symlinkifne .aliases
@@ -68,7 +72,9 @@ symlinkifne .functions
 symlinkifne .gitconfig
 symlinkifne .zshrc
 symlinkifne .vimrc
-
+symlinkifne .docker_wrapper
+symlinkifne .echo
+symlinkifne .iterm
 popd
 
 echo "Install mongo hacker"

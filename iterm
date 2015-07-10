@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 function iterm_run() {
   osascript \
     -e 'activate application "iTerm"' \
