@@ -31,16 +31,6 @@ function iterm_next_pane() {
     -e 'tell application "System Events" to tell process "iTerm" to key code 124 using {shift down, command down}' \
 }
 
-function iterm2x2() {
-  iterm_new_h_pane
-  iterm_prev_pane
-  iterm_new_v_pane
-  iterm_next_pane
-  iterm_new_v_pane
-  iterm_run ls
-}
-
-
 function load() {
   setproj $1
   cd $1
