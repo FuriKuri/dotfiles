@@ -4,6 +4,8 @@ alias emacs='emacs-24.3'
 
 alias chrome=' open -a "Google Chrome"'
 alias canary=' open -a "Google Chrome Canary"'
+# Dev tools
+alias canaryunsafe="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security"
 
 # Easier navigation: .., ..., ...., .....
 alias ..="cd .."
@@ -80,9 +82,6 @@ alias gitd='git diff'
 alias gitr='git rm'
 alias gitb='git branch'
 alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit"
-
-# Dev tools
-alias canaryunsafe="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security"
 
 # Show the IP addresses of this machine, with each interface that the address is on.
 ips () {
