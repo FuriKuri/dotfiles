@@ -20,8 +20,10 @@ function versions() {
   tput setaf 1;
  # echo "Ruby -> "; 
   ruby --version;
+  tput setaf 2;
+  git --version;
   tput setaf 4;
-  git --version;  
+  boot2docker verion; 
 }
 
 # Count code lines in some directory.
