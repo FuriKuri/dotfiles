@@ -23,7 +23,7 @@ function versions() {
   tput setaf 2;
   git --version;
   tput setaf 4;
-  boot2docker verion; 
+  boot2docker version; 
 }
 
 # Count code lines in some directory.
