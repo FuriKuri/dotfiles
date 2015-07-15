@@ -82,6 +82,7 @@ alias gitd='git diff'
 alias gitr='git rm'
 alias gitb='git branch'
 alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit"
+alias gitrp='git reset --hard; git pull'
 
 # Show the IP addresses of this machine, with each interface that the address is on.
 ips () {
