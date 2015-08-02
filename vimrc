@@ -14,6 +14,8 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-fugitive'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'fatih/vim-go'
+Bundle 'majutsushi/tagbar'
+Bundle 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,3 +54,8 @@ if has("gui_running")
       set guifont=Menlo\ for\ Powerline:h12
    endif
 endif
+
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :GoRun<CR>
+nmap <F10> :GoTest<CR>
+

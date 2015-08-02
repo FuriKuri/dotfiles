@@ -96,3 +96,5 @@ eval "$(rbenv init -)"
 source "`brew --prefix grc`/etc/grc.bashrc"
 
 source ~/.dotfiles/z/z.sh
+
+export GOPATH="$HOME/go"
