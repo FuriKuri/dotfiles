@@ -34,5 +34,5 @@ docker() {
   fi
  
   # Execute docker with all arguments.
-  DOCKER --tlsverify=false "$@"
+  DOCKER "$@"
 }
