@@ -142,6 +142,12 @@ prompt_dir() {
   prompt_segment blue black '%~'
 }
 
+prompt_docker_host() {
+  if [[ -n $DOCKER_MACHINE_NAME ]]; then
+    prompt_segment cyan black "$DOCKER_MACHINE_NAME"
+  fi
+}
+
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
@@ -171,6 +177,7 @@ build_prompt() {
   prompt_virtualenv
   prompt_context
   prompt_dir
+  prompt_docker_host
   prompt_git
   prompt_hg
   prompt_end
