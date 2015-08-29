@@ -86,6 +86,10 @@ function mkd() {
 	mkdir -p "$@" && cd "$@"
 }
 
+function docker-env() {
+  eval "$(docker-machine env $1)"
+}
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
