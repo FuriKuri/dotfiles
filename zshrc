@@ -98,3 +98,4 @@ source "`brew --prefix grc`/etc/grc.bashrc"
 source ~/.dotfiles/z/z.sh
 
 export GOPATH="$HOME/go"
+export PATH="/usr/local/sbin:$PATH"
