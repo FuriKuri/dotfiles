@@ -1,6 +1,6 @@
 [user]
-	name = Theo Pack
-	email = tf.pack@gmail.com
+	name = 
+	email = 
 [push]
 	default = simple
 [github]
@@ -60,6 +60,7 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	autocrlf = input
+	excludesfile = /Users/tpack/.gitignore_global
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -102,3 +103,9 @@
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
