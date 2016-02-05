@@ -29,6 +29,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### First look in /usr/local/bin
 export PATH="/usr/local/bin:$PATH"
 
-export PATH="$PATH:$HOME/.dotfiles/woodo"
+export PATH="$PATH:$HOME/.dotfiles/woodo:$HOME/.dotfiles/Git-Nyan-Graph"
 
 export CLICOLOR=1
