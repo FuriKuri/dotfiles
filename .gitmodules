@@ -16,3 +16,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
+[submodule "Git-Nyan-Graph"]
+	path = Git-Nyan-Graph
+	url = https://github.com/steckel/Git-Nyan-Graph.git
