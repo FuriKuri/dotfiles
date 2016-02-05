@@ -19,3 +19,6 @@
 [submodule "woodo"]
 	path = woodo
 	url = https://github.com/chrisbouchard/woodo.git
+[submodule "Git-Nyan-Graph"]
+	path = Git-Nyan-Graph
+	url = https://github.com/steckel/Git-Nyan-Graph.git
