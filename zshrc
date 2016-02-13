@@ -7,8 +7,9 @@ export THEMES_DIR=$HOME/.dotfiles/themes
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
+export ZSH_THEME="honukai"
 #export ZSH_THEME="furikuri"
-export ZSH_THEME="furipowerline"
+#export ZSH_THEME="furipowerline"
 #export ZSH_THEME="takashiyoshida"
 #export ZSH_THEME="random"
 #export ZSH_THEME="jnrowe"

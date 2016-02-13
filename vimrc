@@ -9,7 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tpope/vim-fugitive'
 Plugin 'derekwyatt/vim-scala'
@@ -32,11 +32,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" let g:solarized_termcolors=256
 syntax enable
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
 
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=Fira\ Mono\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -48,11 +49,8 @@ set laststatus=2
 set expandtab
 set shiftwidth=2
 
-if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Menlo\ for\ Powerline:h12
-   endif
+if has('gui_running')
+  set guifont=Fira\ Mono\ for\ Powerline:h15
 endif
 
 nmap <F8> :TagbarToggle<CR>

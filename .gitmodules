@@ -22,3 +22,6 @@
 [submodule "Git-Nyan-Graph"]
 	path = Git-Nyan-Graph
 	url = https://github.com/steckel/Git-Nyan-Graph.git
+[submodule "honukai-iterm-zsh"]
+	path = honukai-iterm-zsh
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
