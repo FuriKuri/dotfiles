@@ -1,5 +1,7 @@
 #!/bin/sh
 
+alias subl='sublime'
+
 alias ctags="`brew --prefix`/bin/ctags"
 
 alias emacs='emacs-24.3'
