@@ -1,3 +1,6 @@
+#mkdir and cd
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+
 function versions() {
   tput setaf 4;
 #  echo "Java ->"; 
