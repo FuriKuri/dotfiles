@@ -26,5 +26,6 @@ install ngrep
 install tree
 install wget
 install git-flow
-
+install doctl
+install thefuck
 # nvm instead of nvm
