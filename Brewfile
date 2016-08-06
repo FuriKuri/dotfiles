@@ -28,4 +28,6 @@ install wget
 install git-flow
 install doctl
 install thefuck
+install terraform
+install scala
 # nvm instead of nvm
