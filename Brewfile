@@ -30,4 +30,5 @@ install doctl
 install thefuck
 install terraform
 install scala
+install vagrant
 # nvm instead of nvm
