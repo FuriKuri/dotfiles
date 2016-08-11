@@ -37,7 +37,8 @@ syntax enable
 " set background=dark
 " colorscheme solarized
 
-set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
+set macligatures
+set guifont=Fira\ Code:h12
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -50,10 +51,9 @@ set expandtab
 set shiftwidth=2
 
 if has('gui_running')
-  set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
+  set guifont=Fira\ Code:h12
 endif
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :GoRun<CR>
 nmap <F10> :GoTest<CR>
-
