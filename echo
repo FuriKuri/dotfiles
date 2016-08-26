@@ -34,6 +34,12 @@ function error() {
     echo -e "$COL_RED[error]$COL_RESET "$1
 }
 
+function happy() {
+echo "###############"
+echo "##  \[._.]/  ##"
+echo "###############"
+}
+
 function setproj() {
     echo "###############"
     echo "##  \[._.]/  ##"
