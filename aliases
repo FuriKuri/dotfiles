@@ -3,6 +3,14 @@
 alias 😺='cat'
 alias 🐳='docker'
 
+alias drma='docker rm $(docker ps -aq)'
+alias drmi='docker rmi $(docker images -q -f "dangling=true")'
+alias drmai='docker rmi $(docker images -q)'
+alias drdefault='eval "$(docker-machine env default)"'
+alias drit='docker exec -it'
+alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+
+
 alias subl='sublime'
 
 alias ctags="`brew --prefix`/bin/ctags"
