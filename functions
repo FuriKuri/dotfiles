@@ -331,3 +331,20 @@ function screenshot.setpng() {
     defaults write com.apple.screencapture type png
     killall SystemUIServer
 }
+
+awsregion() {
+       if [[ -z $1 ]]; then
+               echo "missing region name"
+       else
+               export AWS_DEFAULT_REGION=$1
+       fi
+}
+
+awsprofile() {
+       if [[ -z $1 ]]; then
+               echo "missing profile name"
+       else
+               export AWS_DEFAULT_PROFILE=$1
+               export AWS_PROFILE=$1
+       fi
+}
