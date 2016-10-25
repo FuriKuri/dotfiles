@@ -100,6 +100,6 @@ source ~/.dotfiles/z/z.sh
 
 export GOPATH="$HOME/go"
 export PATH="/usr/local/sbin:$PATH"
-usejava7
+usejava8
 
 eval "$(thefuck --alias)"
