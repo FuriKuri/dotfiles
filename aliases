@@ -1,5 +1,5 @@
 #!/bin/sh
-
+alias weather='curl http://wttr.in/cologne'
 alias 😺='cat'
 alias 🐳='docker'
 
