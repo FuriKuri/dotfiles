@@ -1,4 +1,5 @@
 #!/bin/sh
+
 alias weather='curl http://wttr.in/cologne'
 alias 😺='cat'
 alias 🐳='docker'
@@ -21,6 +22,9 @@ alias chrome=' open -a "Google Chrome"'
 alias canary=' open -a "Google Chrome Canary"'
 # Dev tools
 alias canaryunsafe="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security"
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Easier navigation: .., ..., ...., .....
 alias ..="cd .."
