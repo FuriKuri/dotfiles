@@ -68,9 +68,6 @@ usejava() {
   echo "new JAVA_HOME: $JAVA_HOME"
 }
 
-# Get week number
-alias week='date +%V'
-
 # Switch to different Java versions
 alias usejava7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
 alias usejava8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
