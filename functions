@@ -1,6 +1,10 @@
 #mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
+function utc() {
+  date -u
+}
+
 # Count code lines in some directory.
 # $ loc py js css
 # # => Lines of code for .py: 3781
