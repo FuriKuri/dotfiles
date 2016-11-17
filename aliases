@@ -80,15 +80,6 @@ function termTitle {
   echo -ne "\033]0;"$*"\007"
 }
 
-# svn aliases
-alias svni='svn propset svn:ignore -F "/.svnignore" -R .'
-alias svnc='svn commit -m'
-alias svns='svn status'
-alias svna='svn add'
-alias svnan='svn add -N'
-alias svnu='svn update'
-alias svnd='svn delete'
-
 #git aliases
 alias gitco='git checkout'
 alias gitc='git commit -m'
