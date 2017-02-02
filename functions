@@ -5,6 +5,26 @@ function utc() {
   date -u
 }
 
+function github-clone() {
+	git clone "$@"
+    git config --local user.name="Theo Pack"
+    git config --local user.email="tf.pack@gmail.com"
+}
+
+function git () {
+    case "$PWD" in
+        /Users/*/Projects/GitHub/*)
+            command git -c user.email=tf.pack@gmail.com "$@"
+            ;;
+        /Users/*/Projects/GitLab/*)
+            command git -c user.email=tf.pack@gmail.com "$@"
+            ;;
+        *)
+            command git "$@"
+            ;;
+    esac
+}
+
 # Count code lines in some directory.
 # $ loc py js css
 # # => Lines of code for .py: 3781
