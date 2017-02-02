@@ -87,19 +87,19 @@ done
 unset file
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
 eval "$(rbenv init -)"
 
-source "`brew --prefix grc`/etc/grc.bashrc"
+# source "`brew --prefix grc`/etc/grc.bashrc"
+. /usr/local/etc/grc.bashrc
 
 source ~/.dotfiles/z/z.sh
 
 export GOPATH="$HOME/go"
 export PATH="/usr/local/sbin:$PATH"
-usejava8
 
 eval "$(thefuck --alias)"
