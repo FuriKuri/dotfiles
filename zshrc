@@ -55,7 +55,7 @@ export ZSH_THEME="furi-honukai"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(docker git brew osx compleat dirpersist gem cloudapp sublime brew colored-man github heroku npm mvn nvm rbenv git-extras go scala zsh-syntax-highlighting common-aliases aws z)
+plugins=(docker git brew osx compleat dirpersist gem cloudapp sublime brew colored-man github heroku npm mvn nvm rbenv git-extras go scala common-aliases aws z zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
