@@ -55,7 +55,7 @@ export ZSH_THEME="furi-honukai"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(docker git battery brew osx gradle ant compleat dirpersist gem cloudapp ruby textmate sublime atom bower bundler brew colored-man github heroku npm lein mvn nvm rbenv git-extras go scala zsh-syntax-highlighting common-aliases aws)
+plugins=(docker git brew osx compleat dirpersist gem cloudapp sublime brew colored-man github heroku npm mvn nvm rbenv git-extras go scala zsh-syntax-highlighting common-aliases aws z)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -97,9 +97,5 @@ eval "$(rbenv init -)"
 # source "`brew --prefix grc`/etc/grc.bashrc"
 . /usr/local/etc/grc.bashrc
 
-source ~/.dotfiles/z/z.sh
-
 export GOPATH="$HOME/go"
 export PATH="/usr/local/sbin:$PATH"
-
-eval "$(thefuck --alias)"
