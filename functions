@@ -5,12 +5,6 @@ function utc() {
   date -u
 }
 
-function github-clone() {
-	git clone "$@"
-    git config --local user.name="Theo Pack"
-    git config --local user.email="tf.pack@gmail.com"
-}
-
 function git () {
     case "$PWD" in
         /Users/*/Projects/GitHub/*)
@@ -50,43 +44,14 @@ function loc() {
   echo "${fg[blue]}Total${reset_color} lines of code: ${fg[green]}$total${reset_color}"
 }
 
-# Find files and exec commands at them.
-# $ find-exec .coffee cat | wc -l
-# # => 9762
-function find-exec() {
-  find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
-}
-
 # Better find(1)
 function ff() {
   find . -iname "*${1:-}*"
 }
 
-# Simple calculator
-function calc() {
-	local result=""
-	result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
-	#                       └─ default (when `--mathlib` is used) is 20
-	#
-	if [[ "$result" == *.* ]]; then
-		# improve the output for decimal numbers
-		printf "$result" |
-		sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
-		    -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
-		    -e 's/0*$//;s/\.$//'   # remove trailing zeros
-	else
-		printf "$result"
-	fi
-	printf "\n"
-}
-
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$@"
-}
-
-function docker-env() {
-  eval "$(docker-machine env $1)"
 }
 
 # Change working directory to the top-most Finder window location
@@ -318,18 +283,6 @@ extract () {
      else
          echo "'$1' is not a valid file"
      fi
-}
-
-ii() {
-    echo -e "\nYou are logged on ${RED}$HOST"
-    echo -e "\nAdditionnal information:$NC " ; uname -a
-    echo -e "\n${RED}Users logged on:$NC " ; w -h
-    echo -e "\n${RED}Current date :$NC " ; date
-    echo -e "\n${RED}Machine stats :$NC " ; uptime
-    echo -e "\n${RED}Current network location :$NC " ; scselect
-    echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-    #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
-    echo
 }
 
 lstree() {
