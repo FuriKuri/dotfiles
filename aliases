@@ -1,8 +1,6 @@
 #!/bin/sh
 
 alias weather='curl http://wttr.in/cologne'
-alias 😺='cat'
-alias 🐳='docker'
 
 alias drma='docker rm $(docker ps -aq)'
 alias drmi='docker rmi $(docker images -q -f "dangling=true")'
@@ -11,12 +9,9 @@ alias drdefault='eval "$(docker-machine env default)"'
 alias drit='docker exec -it'
 alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
-
 alias subl='sublime'
 
 alias ctags="`brew --prefix`/bin/ctags"
-
-alias emacs='emacs-24.3'
 
 alias chrome=' open -a "Google Chrome"'
 alias canary=' open -a "Google Chrome Canary"'
@@ -48,9 +43,6 @@ alias ll='ls -FGlAhp'
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 alias hiddenFiles='echo $(ls -1 | wc -l)'
 
-# List only directories
-alias lsd='ls -lF ${colorflag} | grep "^d"'
-
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
@@ -62,15 +54,6 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-usejava() {
-  export JAVA_HOME=`/usr/libexec/java_home -v 1.$1`
-  echo "new JAVA_HOME: $JAVA_HOME"
-}
-
-# Switch to different Java versions
-alias usejava7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
-alias usejava8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
@@ -93,25 +76,6 @@ alias gitb='git branch'
 alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit"
 alias gitrp='git reset --hard; git pull'
 
-# Show the IP addresses of this machine, with each interface that the address is on.
-ips () {
-    local interface=""
-    local types='vmnet|en|eth|vboxnet'
-    local i
-    for i in $(
-        ifconfig \
-        | egrep -o '(^('$types')[0-9]|inet (addr:)?([0-9]+\.){3}[0-9]+)' \
-        | egrep -o '(^('$types')[0-9]|([0-9]+\.){3}[0-9]+)' \
-        | grep -v 127.0.0.1
-    ); do
-        if ! [ "$( echo $i | perl -pi -e 's/([0-9]+\.){3}[0-9]+//g' )" == "" ]; then
-            interface="$i":
-        else
-            echo $interface $i
-        fi
-    done
-}
-
 alias pinghome="nmap -sn 192.168.0.1/24"
 
 macToIp () {
@@ -133,20 +97,9 @@ unset jscbin
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-function screenshot.setjpg() {
-    defaults write com.apple.screencapture type jpg
-    killall SystemUIServer
-}
-
-function screenshot.setpng() {
-    defaults write com.apple.screencapture type png
-    killall SystemUIServer
-}
 
 # Files used, anywhere on the filesystem
 alias files.usage='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v grep'
