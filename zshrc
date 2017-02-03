@@ -98,4 +98,5 @@ eval "$(rbenv init -)"
 . /usr/local/etc/grc.bashrc
 
 export GOPATH="$HOME/go"
+export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/sbin:$PATH"
