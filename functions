@@ -5,12 +5,6 @@ function utc() {
   date -u
 }
 
-function github-clone() {
-	git clone "$@"
-    git config --local user.name="Theo Pack"
-    git config --local user.email="tf.pack@gmail.com"
-}
-
 function git () {
     case "$PWD" in
         /Users/*/Projects/GitHub/*)
