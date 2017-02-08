@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
