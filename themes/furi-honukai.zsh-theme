@@ -11,6 +11,27 @@ function box_name {
     [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
 }
 
+# AWS Profile
+local aws_info='$(aws_icon)'
+function aws_icon {
+  if [[ -n $AWS_DEFAULT_PROFILE ]]; then
+    case "$AWS_DEFAULT_PROFILE" in
+      home)
+        echo "%{$fg[white]%} "
+        ;;
+      ciss*)
+        echo "%{$fg[white]%} "
+        ;;
+      dfl*)
+        echo "%{$fg[white]%} "
+        ;;
+      *)
+        echo "%{$fg[white]%} "
+        ;;
+    esac
+  fi
+}
+
 # Docker info.
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
@@ -59,6 +80,7 @@ PROMPT="
 %{$fg[white]%} \
 %{$fg[green]%}$(box_name) \
 ${docker_info}\
+${aws_info}\
 %{$fg[white]%} \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
@@ -73,6 +95,7 @@ PROMPT="
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
 ${docker_info}\
+${aws_info}\
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
