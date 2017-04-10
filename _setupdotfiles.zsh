@@ -86,7 +86,3 @@ mkdir $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
 cp $DOTFILES_DIR_RELATIVE_TO_HOME/themes/furi-honukai.zsh-theme $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
 cp $DOTFILES_DIR_RELATIVE_TO_HOME/themes/furipowerline.zsh-theme $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
 
-echo "Create .z"
-touch ~/.z
-
-
