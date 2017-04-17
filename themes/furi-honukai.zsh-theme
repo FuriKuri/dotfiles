@@ -35,8 +35,8 @@ function aws_icon {
 # Docker info.
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
-  if [[ -n $DOCKER_MACHINE_NAME ]]; then
-    echo "%{$fg[white]%} %{$fg[blue]%}$DOCKER_MACHINE_NAME%{$fg[white]%} "
+  if [[ -n $DOCKER_HOST ]]; then
+    echo "%{$fg[white]%} %{$fg[blue]%}$DOCKER_HOST%{$fg[white]%} "
   fi
 }
 
