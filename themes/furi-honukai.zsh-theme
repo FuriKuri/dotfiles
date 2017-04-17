@@ -57,6 +57,15 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="$YS_VCS_PROMPT_SUFFIX"
 ZSH_THEME_GIT_PROMPT_DIRTY="$YS_VCS_PROMPT_DIRTY"
 ZSH_THEME_GIT_PROMPT_CLEAN="$YS_VCS_PROMPT_CLEAN"
 
+# Hex clock
+local clock_info='$(hex_clock)'
+hex_clock() {
+  hours=`printf '%02x' $(date +%H)`
+  minutes=`printf '%02x' $(date +%M)`
+  seconds=`printf '%02x' $(date +%S)`
+  echo "[$hours$minutes$seconds]"
+}
+
 # HG info
 local hg_info='$(ys_hg_prompt_info)'
 ys_hg_prompt_info() {
@@ -85,7 +94,7 @@ ${aws_info}\
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
-%{$fg[white]%}  %*
+%{$fg[white]%}  ${clock_info}
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
