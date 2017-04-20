@@ -55,7 +55,7 @@ export ZSH_THEME="furi-honukai"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(docker git brew osx compleat dirpersist sublime brew colored-man github npm mvn nvm rbenv git-extras go scala common-aliases aws z zsh-syntax-highlighting)
+plugins=(docker git git-extras go common-aliases z zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -81,18 +81,23 @@ source $ZSH/oh-my-zsh.sh
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,exports,aliases,functions,extra,echo}; do
+for file in ~/.{exports,aliases,functions,extra,echo}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
-export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh
+# export NVM_DIR="$HOME/.nvm"
+# source $(brew --prefix nvm)/nvm.sh
+alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
 # source "`brew --prefix grc`/etc/grc.bashrc"
 . /usr/local/etc/grc.bashrc
