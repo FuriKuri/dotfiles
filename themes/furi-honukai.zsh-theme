@@ -24,20 +24,7 @@ hex_clock() {
 local aws_info='$(aws_icon)'
 function aws_icon {
   if [[ -n $AWS_DEFAULT_PROFILE ]]; then
-    case "$AWS_DEFAULT_PROFILE" in
-      home)
-        echo "%{$fg[white]%} "
-        ;;
-      ciss*)
-        echo "%{$fg[white]%} "
-        ;;
-      dfl*)
-        echo "%{$fg[white]%} "
-        ;;
-      *)
-        echo "%{$fg[white]%} "
-        ;;
-    esac
+    echo "%{$fg[white]%} aws:%{$fg[yellow]%}$AWS_DEFAULT_PROFILE%{$fg[white]%}"
   fi
 }
 
@@ -45,7 +32,7 @@ function aws_icon {
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
   if [[ -n $DOCKER_HOST ]]; then
-    echo "%{$fg[white]%} %{$fg[blue]%}$DOCKER_HOST%{$fg[white]%} "
+    echo " %{$fg[white]%}docker:%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%}"
   fi
 }
 
@@ -88,11 +75,11 @@ PROMPT="
 %{$fg[cyan]%}%n \
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
+%{$fg[white]%}in \
+%{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
+${hg_info}\
 ${docker_info}\
 ${aws_info}\
-%{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
-${hg_info}\
 ${git_info} \
 %{$fg[white]%}${clock_info}
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
@@ -104,7 +91,7 @@ PROMPT="
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+%{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
