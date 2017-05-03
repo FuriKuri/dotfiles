@@ -28,6 +28,14 @@ function aws_icon {
   fi
 }
 
+# Kube Config
+local kube_info='$(kube_icon)'
+function kube_icon {
+  if [[ -n $KUBECONFIG ]]; then
+    echo "%{$fg[white]%} aws:%{$fg[blue]%}$KUBECONFIG%{$fg[white]%}"
+  fi
+}
+
 # Docker info.
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
@@ -79,6 +87,7 @@ PROMPT="
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
 ${hg_info}\
 ${docker_info}\
+${kube_info}\
 ${aws_info}\
 ${git_info} \
 %{$fg[white]%}${clock_info}
