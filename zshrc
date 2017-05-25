@@ -86,7 +86,7 @@ for file in ~/.{exports,aliases,functions,extra,echo}; do
 done
 unset file
 
-# export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.nvm"
 # source $(brew --prefix nvm)/nvm.sh
 alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
