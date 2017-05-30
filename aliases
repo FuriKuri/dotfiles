@@ -1,7 +1,5 @@
 #!/bin/sh
 
-alias code='code-insiders'
-
 alias weather='curl http://wttr.in/cologne'
 
 alias drma='docker rm $(docker ps -aq)'
