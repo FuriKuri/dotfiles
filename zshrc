@@ -103,6 +103,5 @@ rbenv() {
 . /usr/local/etc/grc.bashrc
 
 export GOPATH="$HOME/go"
-export GOROOT="$HOME/go"
-export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
