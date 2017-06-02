@@ -100,7 +100,7 @@ rbenv() {
 }
 
 # source "`brew --prefix grc`/etc/grc.bashrc"
-. /usr/local/etc/grc.zsh
+. /usr/local/etc/grc.bashrc
 
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
