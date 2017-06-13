@@ -15,7 +15,7 @@ export ZSH_THEME="furi-honukai"
 #export ZSH_THEME="jnrowe"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="code ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Uncomment the following line to use case-sensitive completion.
