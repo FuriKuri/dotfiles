@@ -9,6 +9,7 @@ alias drmai='docker rmi $(docker images -q)'
 alias drdefault='eval "$(docker-machine env default)"'
 alias drit='docker exec -it'
 alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+alias dext="docker ps -a --filter 'exited=0'"
 
 alias subl='sublime'
 
