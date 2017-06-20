@@ -1,1 +1,3 @@
 export UUID=F76B58C9-C585-48A8-96A0-5AB6E708F1EF
+export CHANNEL=stable
+export CLOUD_CONFIG=https://raw.githubusercontent.com/FuriKuri/dotfiles/master/xhyve/cloud-config.yml
