@@ -90,6 +90,8 @@ export NVM_DIR="$HOME/.nvm"
 # source $(brew --prefix nvm)/nvm.sh
 alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
+alias loadcoreos="source ~/.dotfiles/coreos"
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
