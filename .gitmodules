@@ -27,4 +27,4 @@
 	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
 [submodule "coreos-xhyve"]
 	path = coreos-xhyve
-	url = git@github.com:FuriKuri/coreos-xhyve.git
+	url = https://github.com/FuriKuri/coreos-xhyve.git
