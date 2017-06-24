@@ -91,6 +91,7 @@ export NVM_DIR="$HOME/.nvm"
 alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
 alias loadcoreos="source ~/.dotfiles/coreos"
+alias coreos="~/.dotfiles/coreos-xhyve/coreos-xhyve-run"
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
