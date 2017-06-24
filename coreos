@@ -1,5 +1,5 @@
 export UUID=F76B58C9-C585-48A8-96A0-5AB6E708F1EF
 export CHANNEL=stable
 export CLOUD_CONFIG=https://raw.githubusercontent.com/FuriKuri/dotfiles/master/xhyve/cloud-config.yml
-export IMGDIRS=~/.coreos
+export IMGSDIR=~/.coreos
 export SSHKEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDw7ifk0cFD7rvJeXAwRjSXFhOz4i1GJt0SMwUlDZuSgokGb9aI6pea4UqtWfadlk57Rwlrr3xLFwAJxYBiSgpUSJBfaaeDEJOo4NS1dpXl1OpV/be8daKUgWIyn/oqSxfQCII7HCZyEnakefKm+wlFgWoAv+WujVgTtBwL76+ed1Rt/643Hoek2/6vpI9d6T+HaEtVCT6TDQOqJu1vidvK6s7zLoETRI6j8k269tNxVr5zw2tpHQHN6xD7T3lV05roXR5qwtJsM+yO9L5q37Mht+y5olCb1jeHyxeGcPEeIHe/6DeVFUa7Pa2ErStUE73Gi5DOnIWcgkerpkNixq5h tf.pack@googlemail.com"
