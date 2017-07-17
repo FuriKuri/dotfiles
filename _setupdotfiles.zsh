@@ -62,7 +62,7 @@ if [ $1 = "--backup" ]; then
   backupdotfiles .docker_wrapper
   backupdotfiles .echo
   backupdotfiles .iterm
-
+  backupdotfiles .tabtab
 fi
 
 symlinkifne .aliases
