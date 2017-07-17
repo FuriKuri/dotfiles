@@ -4,9 +4,6 @@
 [submodule "osx-terminal.app-colors-solarized"]
 	path = osx-terminal.app-colors-solarized
 	url = git@github.com:tomislav/osx-terminal.app-colors-solarized.git
-[submodule "mongo-hacker"]
-	path = mongo-hacker
-	url = git@github.com:FuriKuri/mongo-hacker.git
 [submodule "z"]
 	path = z
 	url = git@github.com:rupa/z.git
