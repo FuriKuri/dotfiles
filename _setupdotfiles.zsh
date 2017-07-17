@@ -78,10 +78,6 @@ symlinkifne .iterm
 symlinkifne .tabtab
 popd
 
-echo "Install mongo hacker"
-make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker uninstall
-make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker install
-
 echo "Copy Theme"
 mkdir $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
 cp $DOTFILES_DIR_RELATIVE_TO_HOME/themes/furi-honukai.zsh-theme $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
