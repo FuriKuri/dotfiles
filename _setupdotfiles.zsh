@@ -75,6 +75,7 @@ symlinkifne .vimrc
 symlinkifne .docker_wrapper
 symlinkifne .echo
 symlinkifne .iterm
+symlinkifne .tabtab
 popd
 
 echo "Install mongo hacker"
