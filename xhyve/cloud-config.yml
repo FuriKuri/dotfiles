@@ -16,3 +16,5 @@ coreos:
 
         [Install]
         WantedBy=sockets.target
+  etcd:
+    version: 3.2.4
