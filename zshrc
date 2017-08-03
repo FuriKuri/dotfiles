@@ -2,21 +2,9 @@
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 export THEMES_DIR=$HOME/.dotfiles/themes
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-
 export ZSH_THEME="furi-honukai"
-#export ZSH_THEME="furikuri"
-#export ZSH_THEME="furipowerline"
-#export ZSH_THEME="takashiyoshida"
-#export ZSH_THEME="random"
-#export ZSH_THEME="jnrowe"
 
-# Example aliases
 alias zshconfig="code ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -81,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,aliases,functions,extra,echo}; do
+for file in ~/.{exports,aliases,functions,extra,echo,tabtab}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -91,8 +79,6 @@ export NVM_DIR="$HOME/.nvm"
 alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
 alias loadcoreos="source ~/.dotfiles/coreos"
-alias coreos="~/.dotfiles/coreos-xhyve/coreos-xhyve-run"
-alias coreos-fetch="~/.dotfiles/coreos-xhyve/coreos-xhyve-fetch"
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"

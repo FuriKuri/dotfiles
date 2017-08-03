@@ -39,10 +39,3 @@ echo "###############"
 echo "##  \[._.]/  ##"
 echo "###############"
 }
-
-function setproj() {
-    echo "###############"
-    echo "##  \[._.]/  ##"
-    echo "###############"
-    bot "Hi, this workspace is setup for the $1 project"
-}

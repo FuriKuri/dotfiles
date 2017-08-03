@@ -62,7 +62,7 @@ if [ $1 = "--backup" ]; then
   backupdotfiles .docker_wrapper
   backupdotfiles .echo
   backupdotfiles .iterm
-
+  backupdotfiles .tabtab
 fi
 
 symlinkifne .aliases
@@ -75,11 +75,8 @@ symlinkifne .vimrc
 symlinkifne .docker_wrapper
 symlinkifne .echo
 symlinkifne .iterm
+symlinkifne .tabtab
 popd
-
-echo "Install mongo hacker"
-make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker uninstall
-make -C ~/$DOTFILES_DIR_RELATIVE_TO_HOME/mongo-hacker install
 
 echo "Copy Theme"
 mkdir $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
