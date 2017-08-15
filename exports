@@ -34,3 +34,4 @@ export PATH="$PATH:$HOME/.dotfiles/woodo:$HOME/.dotfiles/Git-Nyan-Graph"
 export CLICOLOR=1
 
 export KUBECTL_NAMESPACE=microservice
+export KUBECTL_CONTEXT=minikube
