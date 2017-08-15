@@ -15,6 +15,7 @@ alias kubectl='kubectl --namespace="$KUBECTL_NAMESPACE"'
 # alias kubectl='kubectl --context="$KUBECTL_CONTEXT" --namespace="$KUBECTL_NAMESPACE"'
 alias k8spo='kubectl get pods'
 alias k8sno='kubectl get nodes'
+alias k8sdeploy='kubectl get deploy'
 
 alias subl='sublime'
 
