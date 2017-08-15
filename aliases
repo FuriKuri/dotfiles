@@ -11,6 +11,9 @@ alias drit='docker exec -it'
 alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 alias dext="docker ps -a --filter 'exited=0'"
 
+alias kubectl='kubectl --namespace="$KUBECTL_NAMESPACE"'
+# alias kubectl='kubectl --context="$KUBECTL_CONTEXT" --namespace="$KUBECTL_NAMESPACE"'
+
 alias subl='sublime'
 
 alias ctags="`brew --prefix`/bin/ctags"
