@@ -7,6 +7,14 @@ function utc() {
   date -u
 }
 
+function kubectl () {
+	if [[ -n $KUBECTL_CONTEXT ]]; then
+    command kubectl --context="$KUBECTL_CONTEXT" "$@"
+	else
+    command kubectl --context="$KUBECTL_CONTEXT" "$@"
+  fi
+}
+
 function git () {
     case "$PWD" in
         /Users/*/Projects/GitHub/*)
