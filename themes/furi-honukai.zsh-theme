@@ -23,8 +23,8 @@ function aws_icon {
 # Kube Config
 local kube_info='$(kube_icon)'
 function kube_icon {
-  if [[ -n $KUBECONFIG ]]; then
-    echo "%{$fg[white]%} kube:%{$fg[blue]%}$KUBECONFIG%{$fg[white]%}"
+  if [[ -n $KUBECTL_CONTEXT ]]; then
+    echo "%{$fg[white]%} kube:%{$fg[blue]%}$KUBECTL_CONTEXT%{$fg[white]%}"
   fi
 }
 
