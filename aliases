@@ -21,6 +21,8 @@ alias k8scs='kubectl get componentstatuses'
 alias k8sev='kubectl get event'
 alias k8sctx='kubectl config use-context'
 
+alias minikube='minikube --vm-driver=xhyve'
+
 alias subl='sublime'
 
 alias ctags="`brew --prefix`/bin/ctags"
