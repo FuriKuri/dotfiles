@@ -326,3 +326,11 @@ awsprofile() {
                export AWS_PROFILE=$1
        fi
 }
+
+kubeprofile() {
+       if [[ -z $1 ]]; then
+               echo "missing profile name"
+       else
+               export KUBE_CONTEXT=$1
+       fi
+}
