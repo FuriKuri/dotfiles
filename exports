@@ -3,7 +3,7 @@ export EDITOR="vim"
 export GIT_EDITOR=vim
 
  #Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32767
+export HISTSIZE=10000
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 # Make some commands not show up in history

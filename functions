@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
@@ -13,6 +13,14 @@ function kubectl () {
 	else
     command kubectl --context="$KUBECTL_CONTEXT" "$@"
   fi
+}
+
+function minikube () {
+	if [ "$1" = "start" ]; then
+		command minikube --vm-driver=xhyve "$@"
+	else
+    command minikube "$@"
+	fi
 }
 
 function git () {
