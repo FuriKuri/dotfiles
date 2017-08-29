@@ -11,7 +11,7 @@ function kubectl () {
 	if [[ -n $KUBECTL_CONTEXT ]]; then
     command kubectl --context="$KUBECTL_CONTEXT" "$@"
 	else
-    command kubectl --context="$KUBECTL_CONTEXT" "$@"
+    command kubectl "$@"
   fi
 }
 
