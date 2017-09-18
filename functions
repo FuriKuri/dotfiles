@@ -24,17 +24,17 @@ function minikube () {
 }
 
 function git () {
-    case "$PWD" in
-        /Users/*/Projects/GitHub/*)
-            command git -c user.email=tf.pack@gmail.com "$@"
-            ;;
-        /Users/*/Projects/GitLab/*)
-            command git -c user.email=tf.pack@gmail.com "$@"
-            ;;
-        *)
-            command git "$@"
-            ;;
-    esac
+  case "$PWD" in
+    /Users/*/Projects/GitHub/*)
+      command git -c user.email=tf.pack@gmail.com "$@"
+      ;;
+    /Users/*/Projects/GitLab/*)
+      command git -c user.email=tf.pack@gmail.com "$@"
+      ;;
+    *)
+      command git "$@"
+      ;;
+  esac
 }
 
 # Count code lines in some directory.
@@ -283,24 +283,24 @@ mans () {
 }
 
 extract () {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar e $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)     echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+     echo "'$1' is not a valid file"
+  fi
 }
 
 lstree() {
@@ -309,38 +309,38 @@ lstree() {
 }
 
 function screenshot.setjpg() {
-    defaults write com.apple.screencapture type jpg
-    killall SystemUIServer
+  defaults write com.apple.screencapture type jpg
+  killall SystemUIServer
 }
 
 function screenshot.setpng() {
-    defaults write com.apple.screencapture type png
-    killall SystemUIServer
+  defaults write com.apple.screencapture type png
+  killall SystemUIServer
 }
 
 awsregion() {
-       if [[ -z $1 ]]; then
-               echo "missing region name"
-       else
-               export AWS_DEFAULT_REGION=$1
-       fi
+  if [[ -z $1 ]]; then
+    echo "missing region name"
+  else
+    export AWS_DEFAULT_REGION=$1
+  fi
 }
 
 awsprofile() {
-       if [[ -z $1 ]]; then
-               echo "missing profile name"
-       else
-               export AWS_DEFAULT_PROFILE=$1
-               export AWS_PROFILE=$1
-       fi
+  if [[ -z $1 ]]; then
+    echo "missing profile name"
+  else
+    export AWS_DEFAULT_PROFILE=$1
+    export AWS_PROFILE=$1
+  fi
 }
 
 kubeprofile() {
-       if [[ -z $1 ]]; then
-               echo "missing profile name"
-       else
-               export KUBE_CONTEXT=$1
-       fi
+  if [[ -z $1 ]]; then
+    echo "missing profile name"
+  else
+    export KUBE_CONTEXT=$1
+  fi
 }
 
 awstoken() {
