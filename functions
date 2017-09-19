@@ -277,7 +277,6 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
 
-
 mans () {
 	man $1 | grep -iC2 --color=always $2 | less
 }
