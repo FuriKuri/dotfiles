@@ -32,7 +32,7 @@ function kube_icon {
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
   if [[ -n $DOCKER_HOST ]]; then
-    echo " %{$fg[white]%}docker:%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%}"
+    echo " %{$fg[white]%}도커%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%}"
   fi
 }
 
