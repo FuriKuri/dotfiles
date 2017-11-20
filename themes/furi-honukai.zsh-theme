@@ -16,7 +16,7 @@ hex_clock() {
 local aws_info='$(aws_icon)'
 function aws_icon {
   if [[ -n $AWS_DEFAULT_PROFILE ]]; then
-    echo "%{$fg[white]%} aws:%{$fg[yellow]%}$AWS_DEFAULT_PROFILE%{$fg[white]%}"
+    echo "%{$fg[white]%} 구름:%{$fg[yellow]%}$AWS_DEFAULT_PROFILE%{$fg[white]%}"
   fi
 }
 
