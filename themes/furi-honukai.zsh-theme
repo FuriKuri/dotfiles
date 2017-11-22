@@ -16,7 +16,7 @@ hex_clock() {
 local aws_info='$(aws_icon)'
 function aws_icon {
   if [[ -n $AWS_DEFAULT_PROFILE ]]; then
-    echo "%{$fg[white]%} aws:%{$fg[yellow]%}$AWS_DEFAULT_PROFILE%{$fg[white]%}"
+    echo "%{$fg[white]%} 구름:%{$fg[yellow]%}$AWS_DEFAULT_PROFILE%{$fg[white]%}"
   fi
 }
 
@@ -24,7 +24,7 @@ function aws_icon {
 local kube_info='$(kube_icon)'
 function kube_icon {
   if [[ -n $KUBECTL_CONTEXT ]]; then
-    echo "%{$fg[white]%} kube:%{$fg[blue]%}$KUBECTL_CONTEXT%{$fg[white]%}"
+    echo "%{$fg[white]%} 이다%{$fg[blue]%}$KUBECTL_CONTEXT%{$fg[white]%}"
   fi
 }
 
@@ -32,7 +32,7 @@ function kube_icon {
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
   if [[ -n $DOCKER_HOST ]]; then
-    echo " %{$fg[white]%}docker:%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%}"
+    echo " %{$fg[white]%}도커%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%}"
   fi
 }
 
@@ -48,7 +48,7 @@ YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Git info.
 local git_info='$(git_prompt_info)'
-ZSH_THEME_GIT_PROMPT_PREFIX="${YS_VCS_PROMPT_PREFIX1}git${YS_VCS_PROMPT_PREFIX2}"
+ZSH_THEME_GIT_PROMPT_PREFIX="${YS_VCS_PROMPT_PREFIX1}가기${YS_VCS_PROMPT_PREFIX2}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="$YS_VCS_PROMPT_SUFFIX"
 ZSH_THEME_GIT_PROMPT_DIRTY="$YS_VCS_PROMPT_DIRTY"
 ZSH_THEME_GIT_PROMPT_CLEAN="$YS_VCS_PROMPT_CLEAN"

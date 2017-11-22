@@ -2,6 +2,9 @@
 	default = simple
 [github]
 	user = furikuri
+	name = Theo Pack
+[user]
+  name = Theo Pack
 [core]
 	editor = vim
 [alias]
