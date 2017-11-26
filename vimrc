@@ -36,7 +36,7 @@ syntax enable
 " set background=dark
 " colorscheme solarized
 
-set macligatures
+" set macligatures
 set guifont=Fira\ Code:h12
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
