@@ -40,8 +40,8 @@ prompt_docker_host() {
 local current_dir='${PWD/#$HOME/~}'
 
 # VCS
-YS_VCS_PROMPT_PREFIX1=" %{$fg[white]%}on%{$reset_color%} "
-YS_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"
+YS_VCS_PROMPT_PREFIX1="%{$reset_color%} "
+YS_VCS_PROMPT_PREFIX2="%{$fg[cyan]%}"
 YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
 YS_VCS_PROMPT_DIRTY=" %{$fg[red]%}✖︎"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
@@ -56,10 +56,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN="$YS_VCS_PROMPT_CLEAN"
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
-%{$fg[cyan]%}%n \
-%{$fg[white]%}at \
+%{$fg[cyan]%}%n\
+%{$fg[white]%} \
 %{$fg[green]%}$(box_name) \
-%{$fg[white]%}in \
+%{$fg[white]%}\
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
 ${docker_info}\
 ${kube_info}\
@@ -72,9 +72,9 @@ if [[ "$USER" == "root" ]]; then
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
-%{$fg[white]%}at \
-%{$fg[green]%}$(box_name) \
-%{$fg[white]%}in \
+%{$fg[white]%} \
+%{$fg[green]%}$(box_name)\
+%{$fg[white]%}\
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
 ${git_info} \
 %{$fg[white]%}[%*]
