@@ -43,7 +43,7 @@ alias zshconfig="code ~/.zshrc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(you-should-use docker kubectl dirpersist git git-extras go common-aliases z zsh-syntax-highlighting)
+plugins=(docker kubectl dirpersist git git-extras go common-aliases z zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,aliases,functions,extra,echo,tabtab}; do
+for file in ~/.{exports,aliases,functions,extra,echo,tabtab,path}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
