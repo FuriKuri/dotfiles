@@ -1,0 +1,31 @@
+#!/bin/bash
+
+function ubuntu-init () {
+  MYOLDPWD="$PWD";
+  cd ~/.cloud-ubuntu
+  terraform apply
+  cd $MYOLDPWD
+}
+
+function ubuntu-destroy () {
+  MYOLDPWD="$PWD";
+  cd ~/.cloud-ubuntu
+  terraform destroy
+  cd $MYOLDPWD
+}
+
+function ubuntu-ssh () {
+  ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null furi@ubuntu.furikuri.net
+}
+
+function ubuntu-mount () {
+  if [ ! -d "/mnt/ubuntu" ]; then
+    sudo mkdir -p /mnt/ubuntu
+  fi
+
+  sudo sshfs -o allow_other,defer_permissions -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null furi@ubuntu.furikuri.net:/mnt/ubuntu-workspace /mnt/ubuntu
+}
+
+function ubuntu-unmount () {
+  sudo umount /mnt/ubuntu
+}
