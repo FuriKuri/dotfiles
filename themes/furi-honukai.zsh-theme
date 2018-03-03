@@ -21,12 +21,7 @@ function aws_icon {
 }
 
 # Kube Config
-local kube_info='$(kube_icon)'
-function kube_icon {
-  if [[ -n $KUBECTL_CONTEXT ]]; then
-    echo "%{$fg[white]%} 이다%{$fg[blue]%}$KUBECTL_CONTEXT%{$fg[white]%}"
-  fi
-}
+local kube_info=' $(kube_ps1)'
 
 # Docker Info
 local docker_info='$(prompt_docker_host)'
