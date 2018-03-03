@@ -73,6 +73,7 @@ for file in ~/.{exports,aliases,functions,extra,echo,tabtab,path,ubuntu}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
+source ~/.dotfiles/kube-ps1.sh
 
 export NVM_DIR="$HOME/.nvm"
 # source $(brew --prefix nvm)/nvm.sh
