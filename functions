@@ -7,14 +7,6 @@ function utc() {
   date -u
 }
 
-function kubectl () {
-	if [[ -n $KUBECTL_CONTEXT ]]; then
-    command kubectl --context="$KUBECTL_CONTEXT" "$@"
-	else
-    command kubectl "$@"
-  fi
-}
-
 function minikube () {
 	if [ "$1" = "start" ]; then
 		command minikube --vm-driver=xhyve "$@"
