@@ -59,7 +59,7 @@ PROMPT="
 ${docker_info}\
 ${kube_info}\
 ${aws_info}\
-${git_info} \
+${git_info}\
 %{$fg[white]%}${clock_info}
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 
@@ -71,7 +71,7 @@ PROMPT="
 %{$fg[green]%}$(box_name)\
 %{$fg[white]%}\
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
-${git_info} \
+${git_info}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 fi
