@@ -27,7 +27,7 @@ local kube_info=' $(kube_ps1)'
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
   if [[ -n $DOCKER_HOST ]]; then
-    echo " %{$fg[white]%}도커%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%}"
+    echo " %{$fg[white]%}(🐳 |%{$fg[blue]%}$DOCKER_HOST%{$fg[white]%})"
   fi
 }
 
