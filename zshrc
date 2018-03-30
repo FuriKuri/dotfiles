@@ -74,6 +74,7 @@ for file in ~/.{exports,aliases,functions,extra,echo,tabtab,path,ubuntu}; do
 done
 unset file
 source ~/.dotfiles/kube-ps1.sh
+source ~/Development/google-cloud-sdk/path.zsh.inc
 
 export NVM_DIR="$HOME/.nvm"
 # source $(brew --prefix nvm)/nvm.sh
