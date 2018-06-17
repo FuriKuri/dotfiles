@@ -6,7 +6,7 @@ plugins=(
   git
 )
 
-for file in ~/.{exports,aliases.commons,functions.commons}; do
+for file in ~/.{exports,aliases.common,functions.common}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file

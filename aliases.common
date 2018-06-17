@@ -1,0 +1,50 @@
+#!/bin/sh
+
+alias weather='curl http://wttr.in/cologne'
+
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.RunningFor}}\t{{.Ports}}\t{{.Mounts}}"'
+alias drma='docker rm $(docker ps -aq)'
+alias drmi='docker rmi $(docker images -q -f "dangling=true")'
+alias drmai='docker rmi $(docker images -q)'
+alias drdefault='eval "$(docker-machine env default)"'
+alias drit='docker exec -it'
+alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+alias dext="docker ps -a --filter 'exited=0'"
+
+alias k8spo='kubectl get pods'
+alias k8sno='kubectl get nodes'
+alias k8sdeploy='kubectl get deploy'
+alias k8ssvc='kubectl get services'
+alias k8scs='kubectl get componentstatuses'
+alias k8sev='kubectl get event'
+alias k8sctx='kubectl config use-context'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# Easier navigation: .., ..., ...., .....
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  colorflag="--color"
+else # OS X `ls`
+  colorflag="-G"
+fi
+
+#git aliases
+alias gitco='git checkout'
+alias gitc='git commit -m'
+alias gits='git status'
+alias gita='git add'
+alias gitau='git add . && git add -u :/ && echo "Added all changes" && git status'
+alias gitm='git merge'
+alias gitd='git diff'
+alias gitr='git rm'
+alias gitb='git branch'
+alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit"
+alias gitrp='git reset --hard; git pull'
+alias gitlocal='git config user.email "tf.pack@gmail.com"'
