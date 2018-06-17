@@ -6,6 +6,11 @@ plugins=(
   git
 )
 
+for file in ~/.{exports,aliases.commons,functions.commons}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
+
 source $ZSH/oh-my-zsh.sh
 
 PATH="$HOME/.local/bin:$PATH"
