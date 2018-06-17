@@ -1,0 +1,13 @@
+export ZSH="/home/tfpack/.oh-my-zsh"
+
+ZSH_THEME="furi-honukai"
+
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+PATH="$HOME/.local/bin:$PATH"
+export KUBE_PS1_SYMBOL_DEFAULT="\u2388"
+source /opt/kube-ps1/kube-ps1.sh
