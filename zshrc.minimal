@@ -2,9 +2,7 @@ export ZSH="/home/tfpack/.oh-my-zsh"
 
 ZSH_THEME="furi-honukai"
 
-plugins=(
-  git
-)
+plugins=(git docker kubectl)
 
 for file in ~/.{exports,aliases.common,functions.common}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
