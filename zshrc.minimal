@@ -1,4 +1,4 @@
-export ZSH="/home/tfpack/.oh-my-zsh"
+export ZSH="/home/tfpack/.dotfiles/oh-my-zsh"
 
 ZSH_THEME="furi-honukai"
 
