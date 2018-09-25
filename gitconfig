@@ -4,7 +4,7 @@
 	user = furikuri
 	name = Theo Pack
 [user]
-  name = Theo Pack
+	name = Theo Pack
 [core]
 	editor = vim
 [alias]
@@ -119,6 +119,7 @@
 	trustExitCode = true
 [user]
 	signingkey = furikuri@keybase.io
+	email = tf.pack@gmail.com
 [filter "lfs"]
 	smudge = git-lfs smudge %f
 	required = true
