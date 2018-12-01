@@ -11,14 +11,6 @@ alias drit='docker exec -it'
 alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 alias dext="docker ps -a --filter 'exited=0'"
 
-alias k8spo='kubectl get pods'
-alias k8sno='kubectl get nodes'
-alias k8sdeploy='kubectl get deploy'
-alias k8ssvc='kubectl get services'
-alias k8scs='kubectl get componentstatuses'
-alias k8sev='kubectl get event'
-alias k8sctx='kubectl config use-context'
-
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
@@ -61,3 +53,23 @@ alias gitb='git branch'
 alias gitl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit"
 alias gitrp='git reset --hard; git pull'
 alias gitlocal='git config user.email "tf.pack@gmail.com"'
+
+alias pinghome="nmap -sn 192.168.0.1/24"
+
+macToIp () {
+  arp -a | grep "$1" -i | awk '{print($2)}' | sed -E -e 's/\(|\)//g'
+}
+
+# Get week number
+alias week='date +%V'
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Show network connections
+# Often useful to prefix with SUDO to see more system level network usage
+alias network.connections='lsof -l -i +L -R -V'
+alias network.established='lsof -l -i +L -R -V | grep ESTABLISHED'
+alias network.internalip="ifconfig en0 | egrep -o '([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)'"
+alias network.externalip='curl -s http://checkip.dyndns.org/ | sed "s/[a-zA-Z<>/ :]//g"'
