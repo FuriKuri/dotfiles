@@ -23,9 +23,9 @@ unset file
 
 source ~/.dotfiles/kube-ps1.sh
 
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 # source $(brew --prefix nvm)/nvm.sh
-alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
+# alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
@@ -36,10 +36,9 @@ rbenv() {
   rbenv "$@"
 }
 
-# source "`brew --prefix grc`/etc/grc.bashrc"
-. /usr/local/etc/grc.bashrc
+[[ -s "~/.dotfiles/grc.zsh" ]] && source ~/.dotfiles/grc.zsh
 
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/gopath"
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
