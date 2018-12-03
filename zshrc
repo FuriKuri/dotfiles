@@ -16,9 +16,19 @@ source $ZSH/oh-my-zsh.sh
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,aliases.common,aliases,functions.common,functions,extra,echo,tabtab,path,ubuntu}; do
+for file in ~/.dotfiles/{exports.common,aliases.common,functions.common}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        # ...
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    for file in ~/.dotfiles/{exports.mac,aliases.mac,functions.mac}; do
+		[ -r "$file" ] && [ -f "$file" ] && source "$file"
+	done
+else
+        # Unknown.
+fi
+
 unset file
 
 source ~/.dotfiles/kube-ps1.sh
