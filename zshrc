@@ -7,7 +7,7 @@ alias zshconfig="code ~/.zshrc"
 HIST_STAMPS="yyyy-mm-ddy"
 ZSH_CUSTOM=$HOME/.dotfiles/custom
 
-plugins=(docker kubectl dirpersist git git-extras go common-aliases z zsh-syntax-highlighting)
+plugins=(docker kubectl dirpersist git git-extras go common-aliases zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # ssh
