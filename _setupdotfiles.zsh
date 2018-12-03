@@ -2,18 +2,6 @@
 
 export UNLINK=true
 
-function backupdotfiles {
-  echo "WORKING ON: $1"
-  if [[ -a $1 ]]; then
-    export DOTLESS=`echo $1 | sed s/.//`
-    echo "move $1 to $DOTFILES_DIR_RELATIVE_TO_HOME/$DOTLESS/backup"
-    mv $1 $DOTFILES_DIR_RELATIVE_TO_HOME/backup/$DOTLESS
-  else
-    echo "File does not exist"
-  fi
-
-}
-
 function symlinkifne {
     echo "WORKING ON: $1"
 
@@ -42,7 +30,6 @@ function symlinkifne {
     fi
 }
 
-
 echo "This script must be run from the dotfiles directory"
 echo "Setting up..."
 
@@ -50,36 +37,7 @@ export DOTFILES_DIR_RELATIVE_TO_HOME=.dotfiles
 echo "DOTFILES_DIR_RELATIVE_TO_HOME = $DOTFILES_DIR_RELATIVE_TO_HOME"
 
 pushd ~
-
-if [ $1 = "--backup" ]; then
-  backupdotfiles .aliases
-  backupdotfiles .emacs
-  backupdotfiles .exports
-  backupdotfiles .functions
-  backupdotfiles .gitconfig
-  backupdotfiles .zshrc
-  backupdotfiles .vimrc
-  backupdotfiles .docker_wrapper
-  backupdotfiles .echo
-  backupdotfiles .iterm
-  backupdotfiles .tabtab
-fi
-
-symlinkifne .aliases
-symlinkifne .emacs
-symlinkifne .exports
-symlinkifne .functions
 symlinkifne .gitconfig
 symlinkifne .zshrc
 symlinkifne .vimrc
-symlinkifne .docker_wrapper
-symlinkifne .echo
-symlinkifne .iterm
-symlinkifne .tabtab
 popd
-
-echo "Copy Theme"
-mkdir $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
-cp $DOTFILES_DIR_RELATIVE_TO_HOME/themes/furi-honukai.zsh-theme $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
-cp $DOTFILES_DIR_RELATIVE_TO_HOME/themes/furipowerline.zsh-theme $DOTFILES_DIR_RELATIVE_TO_HOME/oh-my-zsh/custom/themes
-
