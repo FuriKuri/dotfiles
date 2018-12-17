@@ -20,13 +20,13 @@ for file in ~/.dotfiles/{exports.common,aliases.common,functions.common}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        # ...
+    # ...
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     for file in ~/.dotfiles/{exports.mac,aliases.mac,functions.mac}; do
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	done
 else
-        # Unknown.
+    # Unknown.
 fi
 
 unset file
