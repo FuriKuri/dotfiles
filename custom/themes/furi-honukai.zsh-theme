@@ -32,7 +32,8 @@ prompt_docker_host() {
 }
 
 # Directory info.
-local current_dir='${PWD/#$HOME/~}'
+# local current_dir='${PWD/#$HOME/~}'
+local current_dir="%(4~|.../%3~|%~)"
 
 # VCS
 YS_VCS_PROMPT_PREFIX1="%{$reset_color%}"
