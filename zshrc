@@ -4,7 +4,7 @@ export THEMES_DIR=$HOME/.dotfiles/themes
 export ZSH_THEME="furi-honukai"
 
 alias zshconfig="code ~/.zshrc"
-HIST_STAMPS="yyyy-mm-ddy"
+HIST_STAMPS="yyyy-mm-dd"
 ZSH_CUSTOM=$HOME/.dotfiles/custom
 
 export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
