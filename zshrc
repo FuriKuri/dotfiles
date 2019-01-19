@@ -50,7 +50,7 @@ rbenv() {
 
 [[ -s "~/.dotfiles/grc.zsh" ]] && source ~/.dotfiles/grc.zsh
 
-export GOPATH="$HOME/gopath:$HOME/go:/google/gopath"
+export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
