@@ -2,6 +2,7 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 export THEMES_DIR=$HOME/.dotfiles/themes
 
 export ZSH_THEME="furi-honukai"
+# export ZSH_THEME="spaceship"
 
 alias zshconfig="code ~/.zshrc"
 HIST_STAMPS="yyyy-mm-dd"

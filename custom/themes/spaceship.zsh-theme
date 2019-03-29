@@ -1,0 +1,1 @@
+/home/tf_pack/.dotfiles/custom/themes/spaceship-prompt/spaceship.zsh-theme
