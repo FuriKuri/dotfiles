@@ -4,13 +4,7 @@ function box_name {
 }
 
 # Hex Clock
-local clock_info='$(hex_clock)'
-hex_clock() {
-  hours=`printf '%02x' $(date +%H)`
-  minutes=`printf '%02x' $(date +%M)`
-  seconds=`printf '%02x' $(date +%S)`
-  echo "[$hours$minutes$seconds]"
-}
+local clock_info='[$(date +%H%M%S)]'
 
 # AWS Profile
 local aws_info='$(aws_icon)'
