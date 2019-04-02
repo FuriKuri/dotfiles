@@ -4,6 +4,15 @@ function utc() {
   date -u
 }
 
+gcpproject() {
+  if [[ -z $1 ]]; then
+    echo "missing project name"
+  else
+    gcloud config set project $1 
+    export GCP_PROJECT_NAME=$1
+  fi
+}
+
 awsregion() {
   if [[ -z $1 ]]; then
     echo "missing region name"
