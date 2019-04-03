@@ -6,6 +6,14 @@ function box_name {
 # Hex Clock
 local clock_info='[$(date +%H%M%S)]'
 
+# GCP Project
+local gcp_info='$(gcp_icon)'
+function gcp_icon {
+  if [[ -n $GCP_PROJECT_NAME ]]; then
+    echo "%{$fg[white]%} (☁ |%{$fg[blue]%}$GCP_PROJECT_NAME%{$fg[white]%})"
+  fi
+}
+
 # AWS Profile
 local aws_info='$(aws_icon)'
 function aws_icon {
@@ -54,6 +62,7 @@ PROMPT="
 ${docker_info}\
 ${kube_info}\
 ${aws_info}\
+${gcp_info}\
 ${git_info}\
 %{$fg[white]%}${clock_info}
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
