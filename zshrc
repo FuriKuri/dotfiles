@@ -34,6 +34,8 @@ fi
 
 unset file
 
+kubeclr
+
 source ~/.dotfiles/kube-ps1.sh
 
 # export NVM_DIR="$HOME/.nvm"
