@@ -4,6 +4,15 @@ function utc() {
   date -u
 }
 
+azproject() {
+  if [[ -z $1 ]]; then
+    echo "missing subscription"
+  else
+    az account set --subscription "$1" 
+    export AZ_SUBSCRIPTION=$1
+  fi
+}
+
 gcpproject() {
   if [[ -z $1 ]]; then
     echo "missing project name"
