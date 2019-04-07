@@ -6,6 +6,14 @@ function box_name {
 # Hex Clock
 local clock_info='[$(date +%H%M%S)]'
 
+# Azure Subscription
+local az_info='$(az_icon)'
+function az_icon {
+  if [[ -n $AZ_SUBSCRIPTION ]]; then
+    echo "%{$fg[white]%} (☁ |%{$fg[blue]%}$AZ_SUBSCRIPTION%{$fg[white]%})"
+  fi
+}
+
 # GCP Project
 local gcp_info='$(gcp_icon)'
 function gcp_icon {
@@ -63,6 +71,7 @@ ${docker_info}\
 ${kube_info}\
 ${aws_info}\
 ${gcp_info}\
+${az_info}\
 ${git_info}\
 %{$fg[white]%}${clock_info}
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
