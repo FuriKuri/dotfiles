@@ -1,27 +1,3 @@
-[submodule "solarized"]
-	path = solarized
-	url = git@github.com:altercation/solarized.git
-[submodule "osx-terminal.app-colors-solarized"]
-	path = osx-terminal.app-colors-solarized
-	url = git@github.com:tomislav/osx-terminal.app-colors-solarized.git
-[submodule "z"]
-	path = z
-	url = git@github.com:rupa/z.git
-[submodule "Menlo-for-Powerline"]
-	path = Menlo-for-Powerline
-	url = git@github.com:abertsch/Menlo-for-Powerline.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
-[submodule "woodo"]
-	path = woodo
-	url = https://github.com/chrisbouchard/woodo.git
-[submodule "Git-Nyan-Graph"]
-	path = Git-Nyan-Graph
-	url = https://github.com/steckel/Git-Nyan-Graph.git
-[submodule "honukai-iterm-zsh"]
-	path = honukai-iterm-zsh
-	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
-[submodule "coreos-xhyve"]
-	path = coreos-xhyve
-	url = https://github.com/FuriKuri/coreos-xhyve
