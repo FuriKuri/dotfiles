@@ -19,6 +19,7 @@ gcpproject() {
   else
     gcloud config set project $1 
     export GCP_PROJECT_NAME=$1
+    export PROJECT_ID=$1
   fi
 }
 
