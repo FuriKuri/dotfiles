@@ -10,7 +10,7 @@ ZSH_CUSTOM=$HOME/.dotfiles/custom
 
 export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 
-plugins=(docker kubectl dirpersist git git-extras go common-aliases zsh-syntax-highlighting)
+plugins=(docker kubectl dirpersist git git-extras common-aliases zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # ssh
