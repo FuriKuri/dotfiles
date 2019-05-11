@@ -11,7 +11,7 @@ alias drit='docker exec -it'
 alias drip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 alias dext="docker ps -a --filter 'exited=0'"
 
-alias kubeclr='sed -i"" -e"s/^current-context:.*$/current-context:/" ~/.kube/config'
+alias kubeclr='sed -i -e "s/^current-context:.*$/current-context:/" ~/.kube/config'
 
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
