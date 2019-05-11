@@ -34,7 +34,7 @@ fi
 
 unset file
 
-kubeclr
+# kubeclr
 
 source ~/.dotfiles/kube-ps1.sh
 
