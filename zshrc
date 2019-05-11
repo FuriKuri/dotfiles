@@ -2,7 +2,6 @@ export ZSH=$HOME/.dotfiles/oh-my-zsh
 export THEMES_DIR=$HOME/.dotfiles/themes
 
 export ZSH_THEME="furi-honukai"
-# export ZSH_THEME="spaceship"
 
 alias zshconfig="code ~/.zshrc"
 HIST_STAMPS="yyyy-mm-dd"
@@ -13,12 +12,6 @@ export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 plugins=(docker kubectl dirpersist git git-extras common-aliases zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.dotfiles/{exports.common,aliases.common,functions.common}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
