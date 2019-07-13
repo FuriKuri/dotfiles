@@ -9,7 +9,7 @@ ZSH_CUSTOM=$HOME/.dotfiles/custom
 
 export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 
-plugins=(docker kubectl dirpersist git git-extras common-aliases zsh-syntax-highlighting)
+plugins=(docker kubectl dirpersist git git-extras common-aliases)
 source $ZSH/oh-my-zsh.sh
 
 for file in ~/.dotfiles/{exports.common,aliases.common,functions.common}; do
@@ -31,18 +31,8 @@ unset file
 
 source ~/.dotfiles/kube-ps1.sh
 
-# export NVM_DIR="$HOME/.nvm"
-# source $(brew --prefix nvm)/nvm.sh
-# alias loadnvm=". $(brew --prefix nvm)/nvm.sh"
-
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
-
-# eval "$(rbenv init -)"
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
 
 [[ -s "~/.dotfiles/grc.zsh" ]] && source ~/.dotfiles/grc.zsh
 
