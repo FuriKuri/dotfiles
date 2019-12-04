@@ -4,6 +4,10 @@ function utc() {
   date -u
 }
 
+cut-10() {
+  echo "$1" | cut -c1-10
+}
+
 azproject() {
   if [[ -z $1 ]]; then
     echo "missing subscription"
