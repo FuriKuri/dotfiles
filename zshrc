@@ -9,7 +9,7 @@ ZSH_CUSTOM=$HOME/.dotfiles/custom
 
 export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 
-plugins=(docker kubectl dirpersist git git-extras common-aliases)
+plugins=(kube-ps1 docker kubectl dirpersist git git-extras common-aliases)
 source $ZSH/oh-my-zsh.sh
 
 for file in ~/.dotfiles/{exports.common,aliases.common,functions.common}; do
@@ -29,7 +29,7 @@ unset file
 
 # kubeclr
 
-source ~/.dotfiles/kube-ps1.sh
+#source ~/.dotfiles/kube-ps1.sh
 
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
