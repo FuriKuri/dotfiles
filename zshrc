@@ -1,3 +1,7 @@
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 export THEMES_DIR=$HOME/.dotfiles/themes
 
