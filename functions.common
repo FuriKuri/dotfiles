@@ -8,6 +8,10 @@ cut-10() {
   echo "$1" | cut -c1-10
 }
 
+unlock() {
+  gpg --output /tmp/credentials -d $HOME/.aws/credentials.gpg
+}
+
 azproject() {
   if [[ -z $1 ]]; then
     echo "missing subscription"
