@@ -7,7 +7,6 @@ export THEMES_DIR=$HOME/.dotfiles/themes
 
 export ZSH_THEME="furi-honukai"
 
-alias zshconfig="code ~/.zshrc"
 HIST_STAMPS="yyyy-mm-dd"
 ZSH_CUSTOM=$HOME/.dotfiles/custom
 
@@ -30,11 +29,8 @@ else
 fi
 
 unset file
+
 export KUBE_PS1_CLUSTER_FUNCTION=cut-10
-
-
-# kubeclr
-
 source ~/.dotfiles/kube-ps1.sh
 
 # Add `~/bin` to the `$PATH`

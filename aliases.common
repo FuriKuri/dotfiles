@@ -1,5 +1,6 @@
 #!/bin/sh
 
+alias zshconfig="code ~/.zshrc"
 alias grep="grep --color=auto"
 
 alias weather='curl http://wttr.in/cologne'
