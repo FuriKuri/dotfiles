@@ -33,11 +33,10 @@ unset file
 export KUBE_PS1_CLUSTER_FUNCTION=cut-10
 source ~/.dotfiles/kube-ps1.sh
 
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
-
 [[ -s "~/.dotfiles/grc.zsh" ]] && source ~/.dotfiles/grc.zsh
 
+# Add ... to the `$PATH`
+export PATH="$HOME/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
