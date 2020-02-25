@@ -58,7 +58,7 @@ local current_dir="%(4~|.../%3~|%~)"
 # VCS
 YS_VCS_PROMPT_PREFIX1="%{$reset_color%}"
 YS_VCS_PROMPT_PREFIX2="%{$fg[cyan]%}"
-YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
+YS_VCS_PROMPT_SUFFIX="%{$reset_color%} "
 YS_VCS_PROMPT_DIRTY=":%{$fg[red]%}●"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 
@@ -76,13 +76,13 @@ PROMPT="
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
-%{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
+%{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%} \
 ${docker_info}\
 ${kube_info}\
 ${aws_info}\
 ${gcp_info}\
 ${az_info}\
-${git_info} \
+${git_info}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[blue]%}λ %{$reset_color%}"
 
