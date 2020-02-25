@@ -74,7 +74,7 @@ ${gcp_info} \
 ${az_info} \
 ${git_info} \
 %{$fg[white]%}[%*]
-%{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
+%{$terminfo[bold]$fg[orange]%}λ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="
@@ -86,5 +86,5 @@ PROMPT="
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
 ${git_info} \
 %{$fg[white]%}[%*]
-%{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
+%{$terminfo[bold]$fg[orange]%}λ %{$reset_color%}"
 fi
