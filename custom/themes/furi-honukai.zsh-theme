@@ -31,13 +31,23 @@ function aws_icon {
 }
 
 # Kube Config
-local kube_info=' $(kube_ps1)'
+local kube_info=' $(getK8sContext)'
+function getK8sContext {
+  if ! [ -x "$(command -v kubectl)" ]; then
+    KUBE_PS1_CONTEXT="BINARY-N/A"
+  else
+    KUBE_PS1_CONTEXT="$(kubectl config current-context 2>/dev/null)"
+    # Set to 'N/A' if it is not defined
+    KUBE_PS1_CONTEXT="${KUBE_PS1_CONTEXT:-N/A}"
+  fi
+    echo "%{$fg[white]%}%{$fg[red]%}$(echo $KUBE_PS1_CONTEXT| cut -c1-10)%{$fg[white]%}"
+}
 
 # Docker Info
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
   if [[ -n $DOCKER_HOST ]]; then
-    echo " %{$fg[white]%}%{$fg[blue]%}$(echo $DOCKER_HOST| cut -c1-4)%{$fg[white]%}"
+    echo "%{$fg[white]%}%{$fg[blue]%}$(echo $DOCKER_HOST| cut -c1-4)%{$fg[white]%}"
   fi
 }
 
@@ -49,7 +59,7 @@ local current_dir="%(4~|.../%3~|%~)"
 YS_VCS_PROMPT_PREFIX1="%{$reset_color%}"
 YS_VCS_PROMPT_PREFIX2="%{$fg[cyan]%}"
 YS_VCS_PROMPT_SUFFIX="%{$reset_color%}"
-YS_VCS_PROMPT_DIRTY=":%{$fg[red]%}✖︎"
+YS_VCS_PROMPT_DIRTY=":%{$fg[red]%}●"
 YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Git info.
@@ -67,11 +77,11 @@ PROMPT="
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
-${docker_info} \
-${kube_info} \
-${aws_info} \
-${gcp_info} \
-${az_info} \
+${docker_info}\
+${kube_info}\
+${aws_info}\
+${gcp_info}\
+${az_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[blue]%}λ %{$reset_color%}"
