@@ -73,7 +73,7 @@ ${aws_info}\
 ${gcp_info}\
 ${az_info}\
 ${git_info}\
-%{$fg[white]%}${clock_info}
+%{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
