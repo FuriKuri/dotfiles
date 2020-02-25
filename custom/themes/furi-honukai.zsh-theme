@@ -67,12 +67,12 @@ PROMPT="
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
-${docker_info}\
-${kube_info}\
-${aws_info}\
-${gcp_info}\
-${az_info}\
-${git_info}\
+${docker_info} \
+${kube_info} \
+${aws_info} \
+${gcp_info} \
+${az_info} \
+${git_info} \
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 
@@ -84,7 +84,7 @@ PROMPT="
 %{$fg[green]%}$(box_name)\
 %{$fg[white]%}\
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
-${git_info}\
+${git_info} \
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}→ %{$reset_color%}"
 fi
