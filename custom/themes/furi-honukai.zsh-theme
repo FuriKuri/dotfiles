@@ -33,14 +33,13 @@ function aws_icon {
 # Kube Config
 local kube_info=' $(getK8sContext)'
 function getK8sContext {
-  if ! [ -x "$(command -v kubectl)" ]; then
-    KUBE_PS1_CONTEXT="BINARY-N/A"
-  else
+  if [ -x "$(command -v kubectl)" ]; then
     KUBE_PS1_CONTEXT="$(kubectl config current-context 2>/dev/null)"
     # Set to 'N/A' if it is not defined
-    KUBE_PS1_CONTEXT="${KUBE_PS1_CONTEXT:-N/A}"
+    if [ -z "$KUBE_PS1_CONTEXT" ]; then
+      echo "%{$fg[white]%}%{$fg[red]%}$(echo $KUBE_PS1_CONTEXT| cut -c1-10)%{$fg[white]%}"
+    fi    
   fi
-    echo "%{$fg[white]%}%{$fg[red]%}$(echo $KUBE_PS1_CONTEXT| cut -c1-10)%{$fg[white]%}"
 }
 
 # Docker Info
