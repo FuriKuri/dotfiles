@@ -31,13 +31,13 @@ function aws_icon {
 }
 
 # Kube Config
-local kube_info=' $(getK8sContext)'
+local kube_info='$(getK8sContext)'
 function getK8sContext {
   if [ -x "$(command -v kubectl)" ]; then
     KUBE_PS1_CONTEXT="$(kubectl config current-context 2>/dev/null)"
     # Set to 'N/A' if it is not defined
-    if [ -z "$KUBE_PS1_CONTEXT" ]; then
-      echo "%{$fg[white]%}%{$fg[red]%}$(echo $KUBE_PS1_CONTEXT| cut -c1-10)%{$fg[white]%}"
+    if [ ! -z "$KUBE_PS1_CONTEXT" ]; then
+      echo " %{$fg[white]%}%{$fg[red]%}$(echo $KUBE_PS1_CONTEXT| cut -c1-10)%{$fg[white]%}"
     fi    
   fi
 }
@@ -46,7 +46,7 @@ function getK8sContext {
 local docker_info='$(prompt_docker_host)'
 prompt_docker_host() {
   if [[ -n $DOCKER_HOST ]]; then
-    echo "%{$fg[white]%}%{$fg[blue]%}$(echo $DOCKER_HOST| cut -c1-4)%{$fg[white]%}"
+    echo " %{$fg[white]%}%{$fg[blue]%}$(echo $DOCKER_HOST| cut -c1-12)%{$fg[white]%}"
   fi
 }
 
@@ -75,7 +75,7 @@ PROMPT="
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
-%{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%} \
+%{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
 ${docker_info}\
 ${kube_info}\
 ${aws_info}\
