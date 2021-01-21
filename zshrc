@@ -24,6 +24,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     for file in ~/.dotfiles/{exports.mac,aliases.mac,functions.mac}; do
 		[ -r "$file" ] && [ -f "$file" ] && source "$file"
 	done
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+    jenv global 11
 else
     # Unknown.
 fi
@@ -47,3 +50,19 @@ if [ -f '/Users/tpack/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/tpac
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/tpack/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/tpack/google-cloud-sdk/completion.zsh.inc'; fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/tpack/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/Users/tpack/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/Users/tpack/opt/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/Users/tpack/opt/anaconda3/bin:$PATH"
+ #   fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
