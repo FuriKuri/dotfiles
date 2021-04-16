@@ -48,6 +48,28 @@ awsprofile() {
   fi
 }
 
+awstoken-saml() {
+  #~/bin/aws.py
+  if [ "$1" = "unset" ]; then
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+  else
+    result=$(aws --profile saml sts assume-role --role-arn $(aws configure get role_arn) --role-session-name "dev-token")
+
+    access_id=$(echo $result | jq -r '.Credentials.AccessKeyId')
+    access_key=$(echo $result | jq -r '.Credentials.SecretAccessKey')
+    access_token=$(echo $result | jq -r '.Credentials.SessionToken')
+    if [ "$1" = "export" ]; then
+      export AWS_ACCESS_KEY_ID=$access_id
+      export AWS_SECRET_ACCESS_KEY=$access_key
+      export AWS_SESSION_TOKEN=$access_token
+    else
+      printf "export AWS_ACCESS_KEY_ID=%s\nexport AWS_SECRET_ACCESS_KEY=%s\nexport AWS_SESSION_TOKEN=%s\n" $access_id $access_key $access_token
+    fi
+  fi
+}
+
 awstoken() {
   if [ "$1" = "unset" ]; then
     unset AWS_ACCESS_KEY_ID

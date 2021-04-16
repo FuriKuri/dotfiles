@@ -111,7 +111,7 @@
 	path = 
 [user]
 	signingkey = furikuri@keybase.io
-	email = tf.pack@gmail.com
+	email = theo.pack@cologne-intelligence.de
 [filter "lfs"]
 	smudge = git-lfs smudge %f
 	required = true
