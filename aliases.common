@@ -3,6 +3,8 @@
 alias zshconfig="code ~/.zshrc"
 alias grep="grep --color=auto"
 
+alias ssh-insec='ssh -o GlobalKnownHostsFile=/dev/null -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+
 alias weather='curl http://wttr.in/cologne'
 
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.RunningFor}}\t{{.Ports}}\t{{.Mounts}}"'
