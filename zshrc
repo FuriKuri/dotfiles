@@ -2,6 +2,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+export ZSH_DISABLE_COMPFIX=true
+
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 export THEMES_DIR=$HOME/.dotfiles/themes
 
@@ -15,6 +17,9 @@ export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 plugins=(docker kubectl dirpersist git git-extras common-aliases)
 source $ZSH/oh-my-zsh.sh
 
+for file in ~/{.extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
 for file in ~/.dotfiles/{exports.common,aliases.common,functions.common}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
@@ -26,7 +31,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	done
     export PATH="$HOME/.jenv/bin:$PATH"
     eval "$(jenv init -)"
-    jenv global 11
+    # jenv global 11
 else
     # Unknown.
 fi
@@ -35,6 +40,8 @@ unset file
 
 export KUBE_PS1_CLUSTER_FUNCTION=cut-10
 source ~/.dotfiles/kube-ps1.sh
+
+source ~/.dotfiles/notion.sh
 
 [[ -s "~/.dotfiles/grc.zsh" ]] && source ~/.dotfiles/grc.zsh
 
