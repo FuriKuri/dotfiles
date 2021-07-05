@@ -6,6 +6,21 @@ function box_name {
 # Hex Clock
 local clock_info='[$(date +%H%M%S)]'
 
+# Python venv info
+local venv_info='$(virtualenv_info)'
+function virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+    [[ -n "$venv" ]] && echo "%{$fg[white]%} %{$fg[cyan]%}$venv%{$fg[white]%}"
+}
+
+
 # Azure Subscription
 local az_info='$(az_icon)'
 function az_icon {
@@ -76,6 +91,7 @@ PROMPT="
 %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[magenta]%}${current_dir}%{$reset_color%}\
+${venv_info}\
 ${docker_info}\
 ${kube_info}\
 ${aws_info}\
