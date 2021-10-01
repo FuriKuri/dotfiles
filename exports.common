@@ -19,3 +19,5 @@ export MANPAGER="less -X"
 export PATH="/usr/local/bin:$PATH"
 
 export CLICOLOR=1
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1

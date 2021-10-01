@@ -354,3 +354,13 @@ awstoken() {
     fi
   fi
 }
+
+emoji() {
+  if [[ -z $1 ]]; then
+    echo "missing search term"
+  else
+    result=$(http "https://emoji-api.com/emojis?search=$1&access_key=$EMOJI_API_KEY" | jq -r '.[0].character')
+	echo "Found $result. Copy to clipboard."
+	echo -n $result | pbcopy
+  fi
+}
