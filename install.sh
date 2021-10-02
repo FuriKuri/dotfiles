@@ -6,6 +6,7 @@ cd $DOTFILES_DIR
 git submodule update --init --recursive
 cd $HOME
 
+mv $HOME/.zshrc $HOME/.zshrc_old
 mv $HOME/.gitconfig $HOME/.gitconfig_old
 ln -s $DOTFILES_DIR/zshrc $HOME/.zshrc
 ln -s $DOTFILES_DIR/vimrc $HOME/.vimrc
