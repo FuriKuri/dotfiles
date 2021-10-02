@@ -8,6 +8,8 @@ cd $HOME
 
 mv $HOME/.zshrc $HOME/.zshrc_old
 mv $HOME/.gitconfig $HOME/.gitconfig_old
+
+ln -s $DOTFILES_DIR $HOME/.dotfiles
 ln -s $DOTFILES_DIR/zshrc $HOME/.zshrc
 ln -s $DOTFILES_DIR/vimrc $HOME/.vimrc
 ln -s $DOTFILES_DIR/gitconfig $HOME/.gitconfig

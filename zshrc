@@ -2,7 +2,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-DOTFILES_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+DOTFILES_DIR=$HOME/.dotfiles
 
 export ZSH_DISABLE_COMPFIX=true
 
