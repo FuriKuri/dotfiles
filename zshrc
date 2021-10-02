@@ -2,15 +2,17 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+DOTFILES_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 export ZSH_DISABLE_COMPFIX=true
 
-export ZSH=$HOME/.dotfiles/oh-my-zsh
-export THEMES_DIR=$HOME/.dotfiles/themes
+export ZSH=$HOME/$DOTFILES_DIR/oh-my-zsh
+export THEMES_DIR=$HOME/$DOTFILES_DIR/themes
 
 export ZSH_THEME="furi-honukai"
 
 HIST_STAMPS="yyyy-mm-dd"
-ZSH_CUSTOM=$HOME/.dotfiles/custom
+ZSH_CUSTOM=$HOME/$DOTFILES_DIR/custom
 
 export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 
