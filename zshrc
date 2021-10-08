@@ -19,7 +19,7 @@ export ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 plugins=(docker kubectl dirpersist git git-extras common-aliases)
 source $ZSH/oh-my-zsh.sh
 
-for file in ~/{.extra,.export}; do
+for file in ~/{.extra,.project}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 for file in $DOTFILES_DIR/{exports.common,aliases.common,functions.common}; do
@@ -33,7 +33,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	done
     export PATH="$HOME/.jenv/bin:$PATH"
     eval "$(jenv init -)"
-    # jenv global 11
+    #jenv global 16
+    #jenv local 11
 else
     # Unknown.
 fi
@@ -57,3 +58,12 @@ export PATH="$HOME/.local/bin:$PATH"
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -60,7 +60,7 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	autocrlf = input
-	excludesfile = /Users/tpack/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -111,8 +111,11 @@
 	path = 
 [user]
 	signingkey = furikuri@keybase.io
-	email = theo.pack@cologne-intelligence.de
+	email = theo.pack@innoq.com
 [filter "lfs"]
-	smudge = git-lfs smudge %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
-	clean = git-lfs clean %f
+	clean = git-lfs clean -- %f
+[pull]
+	rebase = true
