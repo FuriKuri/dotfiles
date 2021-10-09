@@ -1,6 +1,12 @@
 # Machine name.
 function box_name {
-    [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
+  if [ -f ~/.box-name ]; then
+    cat ~/.box-name
+  elif [[ $HOST =~ "codespace" ]]; then
+    echo "space"
+  else
+    echo $HOST 
+  fi
 }
 
 # Hex Clock
