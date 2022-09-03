@@ -119,3 +119,5 @@
 	clean = git-lfs clean -- %f
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
