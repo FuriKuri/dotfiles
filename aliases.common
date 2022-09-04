@@ -72,7 +72,7 @@ alias week='date +%V'
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # Show network connections
 # Often useful to prefix with SUDO to see more system level network usage
