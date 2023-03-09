@@ -1,0 +1,229 @@
+#!/bin/bash
+
+#mkdir and cd
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+
+function utc() {
+  date -u
+}
+
+function git () {
+  case "$PWD" in
+    /Users/*/Projects/GitHub/*)
+      command git -c user.email=tf.pack@gmail.com "$@"
+      ;;
+    /Users/*/Projects/GitLab/*)
+      command git -c user.email=tf.pack@gmail.com "$@"
+      ;;
+    *)
+      command git "$@"
+      ;;
+  esac
+}
+
+# Better find(1)
+function ff() {
+  find . -iname "*${1:-}*"
+}
+
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# Change working directory to the top-most Finder window location
+function cdf() { # short for `cdfinder`
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
+}
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh
+	else
+		local arg=-sh
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@"
+	else
+		du $arg .[^.]* *
+	fi
+}
+
+# Use Git’s colored diff when available
+hash git &>/dev/null
+if [ $? -eq 0 ]; then
+	function diff() {
+		git diff --no-index --color-words "$@"
+	}
+fi
+
+# Create a data URL from a file
+function dataurl() {
+	local mimeType=$(file -b --mime-type "$1")
+	if [[ $mimeType == text/* ]]; then
+		mimeType="${mimeType};charset=utf-8"
+	fi
+	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+# Create a git.io short URL
+function gitio() {
+	if [ -z "${1}" -o -z "${2}" ]; then
+		echo "Usage: \`gitio slug url\`"
+		return 1
+	fi
+	curl -i http://git.io/ -F "url=${2}" -F "code=${1}"
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {
+	local port="${1:-8000}"
+	sleep 1 && open "http://localhost:${port}/" &
+	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+# All the dig info
+function digga() {
+	dig +nocmd "$1" any +multiline +noall +answer
+}
+
+# Show all the names (CNs and SANs) listed in the SSL certificate
+# for a given domain
+function getcertnames() {
+	if [ -z "${1}" ]; then
+		echo "ERROR: No domain specified."
+		return 1
+	fi
+
+	local domain="${1}"
+	echo "Testing ${domain}…"
+	echo # newline
+
+	local tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
+		| openssl s_client -connect "${domain}:443" 2>&1);
+
+	if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
+		local certText=$(echo "${tmp}" \
+			| openssl x509 -text -certopt "no_header, no_serial, no_version, \
+			no_signame, no_validity, no_issuer, no_pubkey, no_sigdump, no_aux");
+			echo "Common Name:"
+			echo # newline
+			echo "${certText}" | grep "Subject:" | sed -e "s/^.*CN=//";
+			echo # newline
+			echo "Subject Alternative Name(s):"
+			echo # newline
+			echo "${certText}" | grep -A 1 "Subject Alternative Name:" \
+				| sed -e "2s/DNS://g" -e "s/ //g" | tr "," "\n" | tail -n +2
+			return 0
+	else
+		echo "ERROR: Certificate not found.";
+		return 1
+	fi
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
+}
+
+mans () {
+	man $1 | grep -iC2 --color=always $2 | less
+}
+
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar e $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)     echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+     echo "'$1' is not a valid file"
+  fi
+}
+
+lstree() {
+	depth=${1:-2}
+	find . -maxdepth $depth -print | sed -e 's;[^/]*/;|__;g;s;__|; |;g'
+}
+
+function screenshot.setjpg() {
+  defaults write com.apple.screencapture type jpg
+  killall SystemUIServer
+}
+
+function screenshot.setpng() {
+  defaults write com.apple.screencapture type png
+  killall SystemUIServer
+}
+
+awsregion() {
+  if [[ -z $1 ]]; then
+    echo "missing region name"
+  else
+    export AWS_DEFAULT_REGION=$1
+  fi
+}
+
+awsprofile() {
+  if [[ -z $1 ]]; then
+    echo "missing profile name"
+  else
+    export AWS_DEFAULT_PROFILE=$1
+    export AWS_PROFILE=$1
+  fi
+}
+
+kubeprofile() {
+  if [[ -z $1 ]]; then
+    echo "missing profile name"
+  else
+    export KUBE_CONTEXT=$1
+  fi
+}
+
+awstoken() {
+  if [ "$1" = "unset" ]; then
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+  else
+    result=$(aws sts assume-role --role-arn $(aws configure get role_arn) --role-session-name "dev-token")
+
+    access_id=$(echo $result | jq -r '.Credentials.AccessKeyId')
+    access_key=$(echo $result | jq -r '.Credentials.SecretAccessKey')
+    access_token=$(echo $result | jq -r '.Credentials.SessionToken')
+    if [ "$1" = "export" ]; then
+      export AWS_ACCESS_KEY_ID=$access_id
+      export AWS_SECRET_ACCESS_KEY=$access_key
+      export AWS_SESSION_TOKEN=$access_token
+    else
+      printf "export AWS_ACCESS_KEY_ID=%s\nexport AWS_SECRET_ACCESS_KEY=%s\nexport AWS_SESSION_TOKEN=%s\n" $access_id $access_key $access_token
+    fi
+  fi
+}
+
+emoji() {
+  if [[ -z $1 ]]; then
+    echo "missing search term"
+  else
+    result=$(http "https://emoji-api.com/emojis?search=$1&access_key=$EMOJI_API_KEY" | jq -r '.[0].character')
+	echo "Found $result. Copy to clipboard."
+	echo -n $result | pbcopy
+  fi
+}
