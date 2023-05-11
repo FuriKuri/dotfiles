@@ -20,16 +20,18 @@ for file in $DOTFILES_DIR/{exports,aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
-export GOPATH=$HOME/golang
+export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/theo/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/theo/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/theo/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
+export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+[[ ! -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]] || source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
 [[ ! -f $DOTFILES_DIR/p10k.zsh ]] || source $DOTFILES_DIR/p10k.zsh
