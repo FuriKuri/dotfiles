@@ -10,6 +10,7 @@ apps=(
     ag
     cmake
     coreutils
+    devcontainer
     git
     git-crypt
     grep
@@ -21,6 +22,7 @@ apps=(
     jq
     just
     mkcert
+    minikube
     python
     openjdk@17
     shellcheck
