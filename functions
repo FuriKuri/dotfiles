@@ -58,15 +58,6 @@ if [ $? -eq 0 ]; then
 	}
 fi
 
-# Create a data URL from a file
-function dataurl() {
-	local mimeType=$(file -b --mime-type "$1")
-	if [[ $mimeType == text/* ]]; then
-		mimeType="${mimeType};charset=utf-8"
-	fi
-	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
-}
-
 # Create a git.io short URL
 function gitio() {
 	if [ -z "${1}" -o -z "${2}" ]; then
@@ -80,8 +71,6 @@ function gitio() {
 function server() {
 	local port="${1:-8000}"
 	sleep 1 && open "http://localhost:${port}/" &
-	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
@@ -170,60 +159,4 @@ function screenshot.setjpg() {
 function screenshot.setpng() {
   defaults write com.apple.screencapture type png
   killall SystemUIServer
-}
-
-awsregion() {
-  if [[ -z $1 ]]; then
-    echo "missing region name"
-  else
-    export AWS_DEFAULT_REGION=$1
-  fi
-}
-
-awsprofile() {
-  if [[ -z $1 ]]; then
-    echo "missing profile name"
-  else
-    export AWS_DEFAULT_PROFILE=$1
-    export AWS_PROFILE=$1
-  fi
-}
-
-kubeprofile() {
-  if [[ -z $1 ]]; then
-    echo "missing profile name"
-  else
-    export KUBE_CONTEXT=$1
-  fi
-}
-
-awstoken() {
-  if [ "$1" = "unset" ]; then
-    unset AWS_ACCESS_KEY_ID
-    unset AWS_SECRET_ACCESS_KEY
-    unset AWS_SESSION_TOKEN
-  else
-    result=$(aws sts assume-role --role-arn $(aws configure get role_arn) --role-session-name "dev-token")
-
-    access_id=$(echo $result | jq -r '.Credentials.AccessKeyId')
-    access_key=$(echo $result | jq -r '.Credentials.SecretAccessKey')
-    access_token=$(echo $result | jq -r '.Credentials.SessionToken')
-    if [ "$1" = "export" ]; then
-      export AWS_ACCESS_KEY_ID=$access_id
-      export AWS_SECRET_ACCESS_KEY=$access_key
-      export AWS_SESSION_TOKEN=$access_token
-    else
-      printf "export AWS_ACCESS_KEY_ID=%s\nexport AWS_SECRET_ACCESS_KEY=%s\nexport AWS_SESSION_TOKEN=%s\n" $access_id $access_key $access_token
-    fi
-  fi
-}
-
-emoji() {
-  if [[ -z $1 ]]; then
-    echo "missing search term"
-  else
-    result=$(http "https://emoji-api.com/emojis?search=$1&access_key=$EMOJI_API_KEY" | jq -r '.[0].character')
-	echo "Found $result. Copy to clipboard."
-	echo -n $result | pbcopy
-  fi
 }
